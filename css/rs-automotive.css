@@ -1,0 +1,164 @@
+/* Automotive extension: one aligned camera plane, two independent comparisons. */
+.rs-shield { --family-accent: #f12636; }
+.rs-shield .sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); white-space:nowrap; }
+.rs-shield .scene-art, .car-art { position:absolute; left:50%; top:7%; width:min(100%, 630px); height:auto; aspect-ratio:2/3; transform:translateX(-50%); overflow:hidden; }
+.rs-shield .scene-art { background-image:url('../assets/automotive/glass-48.webp'); }
+.rs-shield .scene picture,.rs-shield .scene-image { object-fit:fill; object-position:center; }
+.experience-pin { position:relative; }
+.automotive-experience { --car-split:50%; position:relative; background:#0a0a0b; }
+.auto-step { position:relative; padding:48px 20px; }
+.auto-content { max-width:580px; margin:0 auto; }
+.auto-content h2 { font:700 clamp(36px,11.2vw,64px)/.96 Barlow,Impact,sans-serif; letter-spacing:-.02em; }
+.auto-content h2 span { color:#c1c3c3; }
+.auto-content p:not(.auto-eyebrow):not(.auto-index):not(.range-cue) { color:#b5b8b8; font-size:13px; line-height:1.65; max-width:320px; margin-top:16px; }
+.auto-eyebrow,.auto-index { display:block; color:#aaaead; font-size:9px; letter-spacing:.18em; line-height:1.5; font-weight:700; margin-bottom:16px!important; }
+.auto-eyebrow::before { content:''; display:inline-block; height:2px; width:16px; background:var(--rs-red); vertical-align:middle; margin-right:10px; }
+.problem { margin:30px auto; }
+.problem h2 { color:var(--rs-red); }
+.auto-scene { position:relative; width:100%; height:auto; aspect-ratio:2/3; overflow:hidden; pointer-events:none; }
+.car-art { inset:0; transform:none; width:100%; height:100%; max-width:none; background:#202322 url('../assets/automotive/cabin-48.webp') center/100% 100%; }
+.car-camera { position:absolute; inset:0; transform-origin:50% 34%; }
+.car-camera picture,.car-image { display:block; width:100%; height:100%; object-fit:fill; }
+.car-standard,.car-protected,.cabin-warmth,.cabin-glare,.surface-exposure,.heat-shimmer,.car-energy,.neutral-glass { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+.car-standard { opacity:0; }
+.has-car-controls .car-standard { opacity:1; }
+.cabin-warmth { background:linear-gradient(165deg,transparent 32%,rgba(248,173,64,.06) 43%,rgba(234,145,44,.32) 60%,rgba(238,162,66,.24) 80%,transparent); }
+.cabin-glare { background:radial-gradient(ellipse at 90% 28%,rgba(255,247,213,.6),rgba(255,231,168,.2) 15%,transparent 42%); }
+.surface-exposure { opacity:0; background:radial-gradient(ellipse at 25% 62%,rgba(248,200,136,.24),transparent 26%); }
+.heat-shimmer { opacity:0; background:linear-gradient(176deg,transparent 44%,rgba(255,218,152,.1) 45%,transparent 46%); animation:surface-shimmer 3.5s ease-in-out infinite alternate; }
+.neutral-glass { background:linear-gradient(124deg,transparent 20%,rgba(255,255,255,.055) 27%,transparent 34%); }
+.car-energy path { fill:none; stroke-linecap:round; stroke-width:1.6; }
+.solar-paths { stroke:#ffc88a; opacity:.62; }
+.solar-paths path { stroke-dasharray:26 300; animation:solar-travel 5s linear infinite; }
+.violet-paths { stroke:#b29acf; opacity:.52; }
+.violet-paths path { stroke-dasharray:3 150; animation:solar-travel 4s linear infinite; }
+.reflected-paths { stroke:#ffd0a0; opacity:.22; }
+.reflected-paths path { stroke-dasharray:10 200; animation:solar-travel 6s linear infinite; }
+.uv-stop { fill:#c4b0e2; opacity:.6; }
+.airflow { stroke:#e5e9e8; opacity:.5; }
+.airflow path { stroke-dasharray:12 32; animation:air-flow 1.8s linear infinite; }
+.airflow.calm { opacity:.25; }.airflow.calm path { animation-duration:3.8s; }
+.connectivity { position:absolute; left:48%; top:51%; width:18px; opacity:0; }
+.connectivity svg { fill:none; stroke:#e6eae4; stroke-width:2; stroke-linecap:round; }
+.car-vignette { position:absolute; inset:0; background:linear-gradient(0deg,#0a0a0b,transparent 48%); }
+.family-light { position:absolute; inset:0; background:radial-gradient(ellipse at 50% 80%,color-mix(in srgb,var(--family-accent) 10%,transparent),transparent 65%); opacity:0; transition:background .3s; }
+.car-compare-content { position:relative; margin-top:24px; }
+.car-control { position:relative; height:210px; margin:24px 0; touch-action:pan-y; }
+.car-labels { display:flex; justify-content:space-between; gap:12px; color:#e6e8e5; font-size:8px; font-weight:700; letter-spacing:.1em; }
+.car-labels span { background:#101314bb; border:1px solid #ffffff22; padding:8px; }
+.car-labels i { display:inline-block; width:4px; height:4px; border-radius:50%; background:var(--rs-red); vertical-align:middle; }
+.car-track { position:absolute; left:0; right:0; top:40px; bottom:38px; touch-action:pan-y; }
+.car-divider { position:absolute; top:0; bottom:0; left:var(--car-split); width:1px; background:linear-gradient(transparent,#ffffffaa 20%,#ffffffaa 80%,transparent); pointer-events:none; }
+.car-handle { display:grid; place-items:center; position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:46px; height:46px; color:white; background:#171b1de6; border:1px solid #ffffffbb; border-radius:50%; font:23px/1 Arial,sans-serif; word-spacing:8px; }
+#car-comparison { position:absolute; top:calc(50% - 24px); left:0; width:100%; height:48px; margin:0; opacity:0; cursor:ew-resize; touch-action:pan-y; }
+.car-track:focus-within .car-handle { outline:2px solid var(--rs-red); outline-offset:5px; }
+#car-drag-instruction { position:absolute; bottom:0; text-align:center; width:100%; max-width:none!important; margin:0!important; font-size:8px!important; letter-spacing:.18em; font-weight:700; color:#e1e2e1!important; }
+#car-drag-instruction span { margin-left:8px; color:var(--rs-red); font-size:14px; }
+.car-result { text-align:center; padding:24px 0; }.car-result p { margin:12px auto 0!important; font-size:9px!important; letter-spacing:.09em; }
+.car-benefit { margin:42px auto; }.car-benefit p { max-width:330px; }.benefit-symbol { display:block; width:32px; font-size:27px; color:var(--rs-red); margin-bottom:16px; }
+.comfort-state { font-size:8px!important; letter-spacing:.12em; }.comfort-state span { color:var(--rs-red); margin:0 12px; }
+.family-selector { display:flex; align-items:stretch; gap:8px; border:0; padding:0; margin:28px 0 0; min-width:0; touch-action:pan-y; }
+.family-strip { position:relative; flex:1; min-width:0; min-height:270px; border:1px solid #ffffff19; border-top:3px solid var(--family-color); padding:15px 10px; background:linear-gradient(110deg,#252628,#111315 75%); cursor:pointer; transition:flex .3s,transform .3s,border-color .3s; overflow:hidden; }
+.family-strip.is-selected { flex:1.18; transform:translateY(-6px); border-color:var(--family-color); }
+.family-strip:focus-within { outline:2px solid white; outline-offset:4px; }.family-strip input { position:absolute; inset:0; width:100%; height:100%; margin:0; opacity:0; cursor:pointer; }
+.family-number { display:block; color:#757979; font-size:9px; letter-spacing:.15em; }
+.film-swatch { display:block; height:58px; width:63%; margin:16px auto; border-left:3px solid var(--family-color); background:linear-gradient(125deg,#c7d3d321,#f2f6f40c 48%,#ffffff26 49%,#ffffff05 65%); transform:skewY(-8deg); border-top:1px solid #ffffff4a; border-bottom:1px solid #ffffff16; }
+.family-strip strong { display:block; font:700 clamp(21px,6.1vw,30px)/1 Barlow,Impact,sans-serif; color:var(--family-color); white-space:nowrap; }
+.family-material { display:block; font-size:9px; letter-spacing:.08em; color:#9a9e9e; margin-top:7px; white-space:nowrap; }
+.family-description { display:block; font-size:12px; line-height:1.5; color:#c0c3c3; margin-top:18px; }
+.range-cue { font-size:8px; letter-spacing:.19em; margin-top:26px!important; color:#949898; text-align:center; }.range-cue span { margin-left:12px; color:var(--family-accent); font-size:16px; }
+/* All scene panels share the same pin, so the outgoing and incoming glass align. */
+.is-scroll-story .experience-pin { height:100svh; min-height:600px; overflow:hidden; }
+.is-scroll-story .automotive-experience { position:absolute; inset:0; background:transparent; pointer-events:none; }
+.is-scroll-story .auto-step { display:contents; }
+.is-scroll-story .automotive-experience .auto-content { position:absolute; left:20px; right:20px; bottom:calc(70px + env(safe-area-inset-bottom,0px)); margin:0 auto; padding:0; opacity:0; visibility:hidden; pointer-events:none; }
+.is-scroll-story .automotive-experience .auto-content[data-active="true"] { pointer-events:auto; }
+.is-scroll-story .auto-scene { position:absolute; inset:0; width:100%; height:100%; aspect-ratio:auto; opacity:0; }
+.is-scroll-story .car-art { top:7%; left:50%; width:min(100%,630px); height:auto; aspect-ratio:2/3; transform:translateX(-50%); }
+.is-scroll-story .car-vignette { background:linear-gradient(180deg,#0a0a0b88,transparent 16%,transparent 46%,#0a0a0b 84%); }
+.is-scroll-story .car-compare-content { inset:0 20px; max-width:none; }
+.is-scroll-story .car-compare-content .auto-eyebrow { position:absolute; top:calc(28px + env(safe-area-inset-top,0px)); left:0; right:0; text-align:center; }
+.is-scroll-story .car-compare-content h2 { position:absolute; top:10%; left:0; right:0; text-align:center; font-size:clamp(34px,10.5vw,58px); }
+.is-scroll-story .car-control { position:absolute; left:0; right:0; top:30%; height:31%; margin:0 auto; max-width:580px; }
+.is-scroll-story .car-result { left:20px; right:20px; bottom:8%; }
+.is-scroll-story .car-result h2 { font-size:clamp(36px,10vw,54px); }
+.is-scroll-story .car-products .auto-content { top:calc(34px + env(safe-area-inset-top,0px)); bottom:auto; }
+.is-scroll-story .car-products h2 { font-size:clamp(35px,10.2vw,58px); }
+.is-scroll-story .family-intro { font-size:12px!important; }
+.effects-paused .car-energy path,.effects-paused .heat-shimmer { animation-play-state:paused; }
+@keyframes solar-travel { to { stroke-dashoffset:-326; } }
+@keyframes air-flow { to { stroke-dashoffset:-44; } }
+@keyframes surface-shimmer { to { transform:translateY(-3px); } }
+@media(min-width:900px) { .rs-shield .scene-art,.is-scroll-story .car-art { width:min(70svh,650px); top:1%; }.rs-shield .scene-vignette { background:linear-gradient(0deg,#0a0a0b 8%,transparent 62%); } .is-scroll-story .automotive-experience .auto-content:not(.car-compare-content) { max-width:590px; }.is-scroll-story .car-control { top:29%;height:29%; }.is-scroll-story .family-selector { margin-top:27svh; }.family-strip { min-height:260px; padding:18px; }.family-description { font-size:12px; }.family-material { font-size:8px; }.is-scroll-story .car-products .auto-content { text-align:center; }.family-intro { margin-left:auto!important;margin-right:auto!important; }.family-strip { text-align:left; } }
+@media(max-height:720px) and (orientation:portrait) { .is-scroll-story .experience-pin { min-height:560px; }.rs-shield .scene-art,.is-scroll-story .car-art { top:3%; } .is-scroll-story .automotive-experience .auto-content { bottom:38px; }.is-scroll-story .car-compare-content h2 { font-size:33px;top:10%; }.is-scroll-story .car-control { top:29%;height:30%; }.is-scroll-story .car-result { bottom:6%; }.is-scroll-story .car-result h2 { font-size:33px; }.is-scroll-story .car-products .auto-content { top:24px; }.is-scroll-story .family-selector { margin-top:135px;gap:7px; }.family-strip { min-height:228px;padding:12px 8px; }.film-swatch { height:40px;margin:14px auto; }.family-description { font-size:9px;margin-top:13px; }.range-cue { margin-top:16px!important; }.auto-content h2 { font-size:36px; } }
+@media(orientation:landscape) and (max-height:600px) { .is-scroll-story .experience-pin { min-height:360px; }.rs-shield .scene-art,.is-scroll-story .car-art { width:48%;left:25%;top:-12%; }.is-scroll-story .car-vignette { background:linear-gradient(90deg,transparent 26%,#0a0a0b 55%); } .is-scroll-story .automotive-experience .auto-content:not(.car-compare-content) { left:54%;right:24px;bottom:22%; }.auto-content h2 { font-size:34px; }.is-scroll-story .car-compare-content h2 { left:55%;top:25%;font-size:34px; }.is-scroll-story .car-compare-content .auto-eyebrow { left:55%;top:30px;font-size:7px; }.is-scroll-story .car-control { right:53%;top:16%;height:62%; }.is-scroll-story .car-result { bottom:8%!important; }.is-scroll-story .car-result h2 { font-size:25px; }.is-scroll-story .car-result p { font-size:7px!important; }.is-scroll-story .car-products .auto-content { left:42%;top:22px;bottom:auto; }.is-scroll-story .car-products .auto-eyebrow { display:none; }.is-scroll-story .car-products h2 { font-size:32px; }.is-scroll-story .family-intro { display:none; }.is-scroll-story .family-selector { margin-top:22px; }.family-strip { min-height:215px;padding:10px; }.film-swatch { height:35px;margin:12px auto; }.family-material { font-size:7px; }.family-description { font-size:9px;margin-top:10px; }.range-cue { margin-top:12px!important; } }
+@media(prefers-reduced-motion:reduce) { .car-energy path,.heat-shimmer { animation:none!important; }.family-strip { transition:none; } }
+
+.car-noscript{position:absolute;inset:0;width:100%;height:100%;object-fit:fill}.family-strip:has(input:checked){flex:1.18;transform:translateY(-6px);border-color:var(--family-color)}.effects-paused .car-energy path,.effects-paused .heat-shimmer{animation-play-state:paused}.rs-shield:not(.is-scroll-story) .car-compare-content{position:static}.rs-shield:not(.is-scroll-story) .car-control{position:absolute;left:40px;right:40px;top:150px;height:210px}.rs-shield:not(.is-scroll-story) .car-result{visibility:visible;opacity:1}
+
+.is-scroll-story .auto-scene{z-index:0}.is-scroll-story .automotive-experience .auto-content{z-index:2}
+
+/* Full-bleed hero on narrow portrait screens. The rules above size the photo as a 2:3 box, which stops short of the
+   pinned stage on taller phones, and the base vignette turns solid black from 81% down. Together they left an empty
+   black band under the final story frame. Here the photo covers the whole stage, and the bottom scrim stays
+   translucent (console and seats show through) until it lands on #0a0a0b at the very edge to meet the next section. */
+@media(max-width:899px) and (orientation:portrait) {
+  .rs-shield .scene-art { top:0; left:0; width:100%; max-width:none; height:100%; aspect-ratio:auto; transform:none; }
+  .rs-shield .scene picture,.rs-shield .scene-image { object-fit:cover; object-position:50% 42%; }
+  .rs-shield .scene-vignette { background:linear-gradient(180deg,rgba(6,7,8,.55),transparent 15%,transparent 45%,rgba(10,10,11,.5) 74%,rgba(10,10,11,.88) 93%,#0a0a0b 100%); }
+}
+
+/* Hero text legibility and fit on every other layout (tablet, laptop, desktop, landscape phones). The narrow-portrait
+   blocks around this one never applied there, so the >=900px hero kept a 10px grey caption, a 9px hint and 8px labels over
+   the busy dashboard photo. Same treatment as the portrait block after this one (shadow, lighter greys, larger small print,
+   scrim on .brand-reveal so it fades with the text); that block still wins on narrow portrait screens because it comes later. */
+.rs-shield .brand-reveal::before { content:''; position:absolute; z-index:-1; left:-20px; right:-20px; top:-64px; bottom:-80px; background:linear-gradient(180deg,rgba(10,10,11,0),rgba(10,10,11,.55) 34%,rgba(10,10,11,.72)); pointer-events:none; }
+.rs-shield .brand-reveal h1 { text-shadow:0 2px 14px rgba(0,0,0,.55),0 0 3px rgba(0,0,0,.35); }
+.rs-shield .brand-reveal h1 span+span { color:#d3d3d0; }
+.rs-shield .brand-reveal p { font-size:12px; color:#c4c4c1; text-shadow:0 1px 8px rgba(0,0,0,.75); }
+.rs-shield #comparison-instruction { font-size:10px; letter-spacing:.16em; text-shadow:0 1px 3px rgba(0,0,0,.9),0 0 14px rgba(0,0,0,.8); }
+.rs-shield .comparison-labels { font-size:9px; }
+.rs-shield .intro-kicker { font-size:10px; text-shadow:0 1px 8px rgba(0,0,0,.7); }
+.rs-shield .discover { font-size:11px; text-shadow:0 1px 8px rgba(0,0,0,.7); }
+
+/* Short landscape windows (a laptop with toolbars is often ~600-760px tall). The drag hint sits at 57% of the stage and
+   the headline group is anchored to the bottom, so on a 650px window "DRAG TO FEEL THE DIFFERENCE" printed over
+   "CLARITY OUTSIDE.". Size the group from the window height and put the hint just under the slider so they never meet. */
+@media(orientation:landscape) and (min-height:601px) and (max-height:759px) {
+  .rs-shield .brand-reveal { bottom:56px; }
+  .rs-shield .brand-reveal::before { bottom:-56px; }
+  .rs-shield .brand-reveal h1 { font-size:clamp(36px,6.6vh,52px); }
+  .rs-shield .rs-logo { width:clamp(72px,12vh,100px); margin:12px 0 8px; }
+  .rs-shield #comparison-instruction { top:54%; }
+}
+
+/* Very narrow phones (<360px): keep the centred kicker clear of the fixed corner logo. */
+@media(max-width:359px) {
+  .rs-shield .intro-kicker { left:68px; letter-spacing:.16em; }
+}
+
+/* Landscape phones: browser bars leave ~320-350px of height, less than the 360px stage minimum, which pushed
+   "SWIPE TO DISCOVER" below the fold. */
+@media(orientation:landscape) and (max-height:600px) {
+  .rs-shield .shield-stage,.is-scroll-story .experience-pin { min-height:300px; }
+}
+
+/* Hero text legibility on narrow portrait screens. Over the full-bleed dashboard photo the headline sat on busy, partly
+   bright detail and the small lines (8-10px, mid-grey) were easy to lose. The scrim belongs to .brand-reveal, so it fades
+   out with the text when the scroll story starts and never touches the story frames or the photo itself. */
+@media(max-width:899px) and (orientation:portrait) {
+  /* Headline group sits --hero-lift higher than its base bottom offset (margin adds to whichever `bottom` applies, so
+     short phones keep their own). The lift scales with the screen: 48px on tall phones, down to 24px on very short ones,
+     where a bigger lift would run into "DRAG TO FEEL THE DIFFERENCE". The scrim's bottom uses the same variable (74px is
+     the base offset) so it always reaches the bottom of the stage. */
+  .rs-shield .brand-reveal { --hero-lift:clamp(24px,5.7svh,48px); margin-bottom:var(--hero-lift); }
+  .rs-shield .brand-reveal::before { content:''; position:absolute; z-index:-1; left:-20px; right:-20px; top:-64px; bottom:calc(-74px - var(--hero-lift) - env(safe-area-inset-bottom,0px)); background:linear-gradient(180deg,rgba(10,10,11,0),rgba(10,10,11,.55) 34%,rgba(10,10,11,.72)); pointer-events:none; }
+  .rs-shield .brand-reveal h1 { text-shadow:0 2px 14px rgba(0,0,0,.55),0 0 3px rgba(0,0,0,.35); }
+  .rs-shield .brand-reveal h1 span+span { color:#d3d3d0; }
+  .rs-shield .brand-reveal p { font-size:11px; color:#c4c4c1; text-shadow:0 1px 8px rgba(0,0,0,.75); }
+  .rs-shield #comparison-instruction { font-size:10px; letter-spacing:.16em; text-shadow:0 1px 3px rgba(0,0,0,.9),0 0 14px rgba(0,0,0,.8); }
+  .rs-shield .comparison-labels { font-size:9px; }
+  .rs-shield .intro-kicker { font-size:10px; text-shadow:0 1px 8px rgba(0,0,0,.7); }
+  .rs-shield .shield-stage,.rs-shield.is-scroll-story .experience-pin { height:100svh; min-height:0; }
+  .rs-shield .discover { z-index:2; top:calc(64px + env(safe-area-inset-top,0px)); bottom:auto; min-height:44px; padding:0; border:0; border-radius:0; background:none; font-size:12px; color:var(--rs-white)!important; text-shadow:0 1px 8px rgba(0,0,0,.7); }
+}

@@ -1,0 +1,193 @@
+/* Phase 3: calmer, normal-flow section. Reuses .auto-content/.auto-eyebrow/.family-strip/.range-cue tokens from rs-automotive.css. */
+.phase-three{
+  --space-section:56px;
+  --space-section-lg:76px;
+  --space-lg:32px;
+  --space-md:20px;
+  --space-sm:12px;
+  position:relative;background:#0a0a0b;border-top:1px solid #ffffff14
+}
+.p3-block{padding:var(--space-section) 20px}
+.p3-block .auto-content{max-width:580px;margin:0 auto}
+.p3-block .auto-content p{max-width:420px}
+.p3-video .auto-content,.p3-compare-video .auto-content,.p3-guide .auto-content,.p3-families .auto-content{text-align:center}
+.p3-video .auto-content p,.p3-compare-video .auto-content p,.p3-guide .auto-content p,.p3-families .auto-content p{margin-left:auto;margin-right:auto}
+.p3-compare-video h2 .p3-vs{color:var(--rs-white)}
+.p3-compare-video h2 > span:last-child{color:#fff}
+
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+.reveal.is-visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* Simple benefit scroll: replaces the old pinned car-benefits sequence. Normal flow, no ScrollTrigger. */
+.simple-benefits{background:#0a0a0b;padding:clamp(64px,10vh,88px) 20px 8px}
+.sb-list{list-style:none;margin:0 auto;padding:0;max-width:580px}
+.sb-item{padding:28px 0;border-bottom:1px solid #ffffff1a}
+.sb-item:last-child{border-bottom:0}
+.sb-number{display:block;color:var(--rs-red);font:700 13px/1 Barlow,Impact,sans-serif;letter-spacing:.1em;margin-bottom:12px}
+.sb-item h3{margin:0 0 10px;font:700 clamp(24px,7vw,32px)/1.1 Barlow,Impact,sans-serif;letter-spacing:-.01em;color:var(--rs-white)}
+.sb-item p{margin:0;max-width:420px;font-size:13px;line-height:1.6;color:#a9adac}
+
+.p3-bridge-list{list-style:none;margin:22px 0 0;padding:0;display:flex;flex-direction:column;gap:10px;max-width:320px}
+.p3-bridge-list li{font:600 14px/1.3 Arial,Helvetica,sans-serif;padding-left:24px;position:relative;color:var(--rs-white)}
+.p3-bridge-list li::before{content:'';position:absolute;left:0;top:9px;width:12px;height:2px;background:var(--rs-red)}
+/* During scroll story, skip bridge so unpin lands on the YouTube block. */
+.rs-shield.is-scroll-story .p3-bridge{display:none}
+.rs-shield.is-scroll-story .simple-benefits{display:none}
+/* After pin leave, collapse the cinematic so the next screen is the video. */
+.rs-shield.is-scroll-story.is-story-complete .experience-pin{height:0;min-height:0;overflow:hidden}
+
+/* Three tappable priority rows: a decision moment, not a benefits list. */
+.p3-guide h2{font-size:clamp(2rem,7vw,3rem)}
+.p3-priorities{position:relative;margin:36px auto 0;max-width:580px;padding-left:28px;display:flex;flex-direction:column}
+.p3-priority-track{position:absolute;left:6px;top:0;bottom:0;width:1px;background:#ffffff1a}
+.p3-priority-track-fill{position:absolute;left:-1.5px;width:4px;background:var(--rs-red);border-radius:2px;transition:top .3s ease,height .3s ease}
+.p3-priority{position:relative;display:flex;align-items:center;gap:16px;width:100%;min-height:88px;text-align:left;font:inherit;color:inherit;background:none;appearance:none;-webkit-appearance:none;border:0;border-top:1px solid #ffffff1f;padding:27px 4px;cursor:pointer}
+.p3-priorities .p3-priority:last-child{border-bottom:1px solid #ffffff1f}
+.p3-priority.is-selected::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 0% 50%,rgba(61,188,231,.06),transparent 60%);pointer-events:none}
+.p3-priority-number{flex:0 0 auto;font:700 13px/1 Barlow,Impact,sans-serif;letter-spacing:.05em;color:#7a3a3f;transition:color .25s}
+.p3-priority.is-selected .p3-priority-number{color:var(--rs-red)}
+.p3-priority-body{position:relative;flex:1 1 auto;min-width:0;text-align:center}
+.p3-priority-body strong{display:block;font:700 clamp(1.35rem,5.5vw,1.8rem)/1.15 Barlow,Impact,sans-serif;letter-spacing:.01em;margin-bottom:6px;color:#c7c9c8;transition:color .25s}
+.p3-priority.is-selected .p3-priority-body strong{color:var(--rs-white)}
+.p3-priority-body p{margin:8px 0 0;font-size:.8rem;line-height:1.6;color:#b5b8b8}
+.p3-priority-arrow{flex:0 0 auto;color:#6b6f6e;font-size:16px;transition:color .25s,transform .25s}
+.p3-priority.is-selected .p3-priority-arrow{color:var(--rs-red);transform:translateX(3px)}
+.p3-priority:focus-visible{outline:2px solid var(--rs-red);outline-offset:-2px}
+@media(prefers-reduced-motion:reduce){.p3-priority-track-fill{transition:none}}
+
+/* Product image frame, used by each product in the .p3-range sequence at the end of the page. */
+.p3-stage-image-wrap{position:relative;max-width:340px;margin:0 auto;aspect-ratio:4/3}
+/* Frame the mockup: the Global/Classic art is near-black along its bottom edge and would otherwise dissolve into the page. */
+.p3-stage-image-wrap::after{content:'';position:absolute;inset:0;box-sizing:border-box;border:1px solid #ffffff2e;border-bottom:2px solid var(--family-accent);pointer-events:none}
+.p3-stage-image{width:100%;height:100%;object-fit:contain;display:block}
+.p3-stage-image-fallback{display:none;position:absolute;inset:0;align-items:center;justify-content:center;font:700 clamp(20px,6vw,28px)/1 Barlow,Impact,sans-serif;color:#5a5d5c;background:#141617}
+.p3-range-item.image-failed .p3-stage-image{display:none}
+.p3-range-item.image-failed .p3-stage-image-fallback{display:flex}
+
+.p3-video-frame{position:relative;max-width:640px;margin:32px auto 0;aspect-ratio:16/9;overflow:hidden;background:#000;isolation:isolate}
+.p3-video-poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 42%;filter:brightness(.55) saturate(1.05)}
+.p3-video-frame::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,10,11,.15),rgba(10,10,11,.55));pointer-events:none}
+.p3-video-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:64px;height:64px;border-radius:50%;background:rgba(10,10,11,.55);border:1.5px solid var(--rs-red);display:grid;place-items:center;cursor:pointer;z-index:1}
+.p3-video-play svg{width:20px;height:22px;margin-left:3px;fill:var(--rs-white)}
+.p3-video-play:hover,.p3-video-play:focus-visible{background:var(--rs-red)}
+.p3-video-caption{position:absolute;left:0;right:0;bottom:16px;text-align:center;font-size:9px;letter-spacing:.18em;font-weight:700;color:var(--rs-white);z-index:1;text-shadow:0 1px 8px #000}
+.p3-video-frame iframe,.p3-video-frame .p3-video-player{position:absolute;inset:0;width:100%;height:100%;border:0}
+.p3-video-frame.is-playing{opacity:1;transform:none}
+.p3-video-frame.is-playing .p3-video-poster,.p3-video-frame.is-playing .p3-video-play,.p3-video-frame.is-playing .p3-video-caption,.p3-video-frame.is-playing::after{display:none}
+.p3-video-frame.is-mounting .p3-video-player{z-index:0}
+.p3-video-frame.is-mounting .p3-video-poster,.p3-video-frame.is-mounting .p3-video-play,.p3-video-frame.is-mounting .p3-video-caption{z-index:2}
+.p3-video-fallback{position:absolute;inset:0;z-index:4;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:24px;background:rgba(10,10,11,.92);text-align:center}
+.p3-video-fallback p{margin:0;font-size:13px;line-height:1.5;color:#c0c3c3}
+.p3-video-fallback a{display:inline-flex;align-items:center;min-height:44px;padding:12px 18px;border:1px solid var(--rs-red);color:var(--rs-white);font:700 11px/1 Barlow,Impact,sans-serif;letter-spacing:.12em;text-decoration:none}
+.p3-video-fallback a:hover,.p3-video-fallback a:focus-visible{background:var(--rs-red)}
+.p3-video-frame.is-embed-failed .p3-video-play,.p3-video-frame.is-embed-failed .p3-video-caption{display:none}
+.p3-video-unmute{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:3;border:1px solid #ffffff55;background:rgba(10,10,11,.78);color:var(--rs-white);font:700 10px/1 Barlow,Impact,sans-serif;letter-spacing:.14em;padding:12px 16px;min-height:44px;cursor:pointer}
+.p3-video-frame.is-unmuted .p3-video-unmute,.p3-video-frame:not(.is-muted) .p3-video-unmute{display:none}
+.p3-video-frame.is-muted.is-live .p3-video-unmute{display:block}
+.p3-video-frame.is-portrait{max-width:300px;aspect-ratio:9/16}
+.p3-video-points-title{max-width:640px;margin:40px auto 0;text-align:center;font:700 clamp(24px,7vw,34px)/1.05 Barlow,Impact,sans-serif;letter-spacing:-.01em;color:var(--rs-white)}
+.p3-video-points-title span{color:#c1c3c3}
+.p3-video-points-title + .p3-video-points{margin-top:20px}
+.p3-video-points{list-style:none;margin:24px auto 0;padding:0;max-width:640px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.p3-video-points li{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;padding:22px 8px 20px;border-top:1px solid #ffffff1f;text-align:center;font:700 clamp(12px,3.4vw,15px)/1.4 Arial,Helvetica,sans-serif;letter-spacing:.04em;color:var(--rs-white)}
+.p3-video-points li:nth-child(odd){border-right:1px solid #ffffff1f}
+.p3-video-points li:nth-last-child(-n+2){border-bottom:1px solid #ffffff1f}
+
+/* COMPARE THE RANGE: real performance data, presented as a calm mobile spec sheet, not a table.
+   Family follows the CHOOSE YOUR RS buttons, or whichever product is showing in the .p3-range sequence at
+   the end of the page — this section only ever shows a variant selector for that family. */
+.p3-compare{padding-top:var(--space-section-lg)}
+/* CHOOSE YOUR RS and the compare block are one stage: heading, range buttons, then the variant selector.
+   The buttons follow the same family the compare block reports (rs-phase-three.js). */
+.p3-families{padding-bottom:0}
+.p3-families + .p3-compare{padding-top:var(--space-lg)}
+/* Range buttons under the heading. A tap picks the family; the variant tabs and percentages just below follow it. */
+.p3-family-picker{display:flex;align-items:stretch;gap:8px;max-width:420px;margin:var(--space-lg) auto 0}
+.p3-family{position:relative;flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:72px;padding:18px 8px;border:1px solid #ffffff19;border-top:3px solid var(--family-accent);background:linear-gradient(110deg,#252628,#111315 75%);color:inherit;font:inherit;text-align:left;cursor:pointer;appearance:none;-webkit-appearance:none;overflow:hidden;transition:transform .3s,border-color .3s}
+.p3-family.is-selected{border-color:var(--family-accent)}
+.p3-family:focus-visible{outline:2px solid var(--rs-white);outline-offset:3px}
+.p3-family strong{font:700 clamp(21px,6.1vw,30px)/1 Barlow,Impact,sans-serif;color:var(--family-accent);white-space:nowrap}
+@media(prefers-reduced-motion:reduce){.p3-family{transition:none}}
+.p3-compare .p3-compare-subhead{max-width:420px;margin:var(--space-lg) auto 0;text-align:center;font:700 12px/1.5 Barlow,Impact,sans-serif;letter-spacing:.14em;color:#a6aaaa}
+.p3-compare .p3-compare-subhead:first-child{margin-top:0}
+
+.p3-compare-variants{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:var(--space-sm) auto 0;max-width:420px}
+.p3-compare-variant{background:none;border:1px solid #ffffff26;color:#c7c9c8;font:700 13px/1 Barlow,Impact,sans-serif;padding:14px 18px;min-width:64px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;text-align:center;cursor:pointer;transition:border-color .25s,color .25s}
+.p3-compare-variant.is-active{border-color:var(--family-accent);color:var(--rs-white)}
+.p3-compare-variant:focus-visible{outline:2px solid var(--rs-red);outline-offset:2px}
+
+.p3-compare-toggle{display:block;margin:16px auto 0;background:none;border:1px solid #ffffff26;color:#c7c9c8;font-size:10px;letter-spacing:.14em;font-weight:700;padding:13px 20px;min-height:44px;cursor:pointer}
+.p3-compare-toggle[aria-pressed="true"]{border-color:var(--family-accent);color:var(--rs-white)}
+
+/* 2 x 2 grid at every screen width (VLT + UV, then IR + Heat). Help text stretches so both bars in a row line up. */
+.p3-metrics{max-width:420px;margin:var(--space-md) auto 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--space-md);transition:opacity .25s ease,transform .25s ease}
+.p3-metrics.is-swapping{opacity:0;transform:translateY(6px)}
+.p3-metric{display:flex;flex-direction:column;padding:28px 0;border-top:1px solid #ffffff1f}
+.p3-metrics .p3-metric:nth-last-child(-n+2){border-bottom:1px solid #ffffff1f}
+.p3-metric-value{display:flex;align-items:baseline;justify-content:center;gap:2px;font:700 clamp(2.2rem,10vw,3rem) Barlow,Impact,sans-serif;color:var(--family-accent)}
+.p3-metric-value span:last-child{font-size:.5em}
+.p3-metric-label{margin:8px 0 0;text-align:center;font-size:11px;letter-spacing:.12em;font-weight:700;color:var(--rs-white);line-height:1.4}
+.p3-metric-help{flex:1 1 auto;margin:6px 0 0;text-align:center;font-size:12px;line-height:1.5;color:#8b9090}
+.p3-metric-gauge{width:100%;margin:14px auto 0;max-width:220px;height:4px;background:#ffffff14;border-radius:2px;overflow:hidden}
+.p3-metric-gauge-fill{display:block;height:100%;width:0;background:var(--family-accent);border-radius:2px;transition:width .4s ease}
+@media(prefers-reduced-motion:reduce){.p3-metrics,.p3-metric-gauge-fill{transition:none}}
+
+.p3-compare-dual{max-width:420px;margin:32px auto 0}
+.p3-compare-dual-pickers{display:flex;align-items:center;justify-content:center;gap:12px}
+.p3-compare-dual-vs{font:700 10px/1 Barlow,Impact,sans-serif;color:#6b6f6e;letter-spacing:.1em}
+.p3-compare-dual-picker{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.p3-compare-dual-picker button{background:none;border:1px solid #ffffff26;color:#c7c9c8;font:700 11px/1 Barlow,Impact,sans-serif;padding:8px 12px;min-height:44px;min-width:44px;cursor:pointer}
+.p3-compare-dual-picker button.is-active{border-color:var(--family-accent);color:var(--rs-white)}
+.p3-compare-dual-picker button:focus-visible{outline:2px solid var(--rs-red);outline-offset:2px}
+.p3-compare-dual-grid{margin-top:var(--space-md);display:grid;grid-template-columns:1fr auto auto;gap:14px 16px;align-items:center}
+.p3-compare-dual-grid .p3-cdg-label{font-size:11px;letter-spacing:.06em;color:#9a9e9e}
+.p3-compare-dual-grid .p3-cdg-value{font:700 18px/1 Barlow,Impact,sans-serif;color:var(--rs-white);text-align:right}
+.p3-compare-dual-grid .p3-cdg-header{font-size:10px;letter-spacing:.1em;font-weight:700;color:#6b6f6e;text-align:right}
+
+
+/* Product images stack vertically in normal reading order. */
+.p3-range-stage{display:flex;flex-direction:column;gap:32px;padding:32px 20px 64px}
+.p3-range-item{position:relative;isolation:isolate;text-align:center}
+.p3-range .p3-stage-image-wrap{width:100%;max-width:340px}
+
+/* Calm ending: one more video, one CTA, minimal footer. No pinning, no new animation system. */
+.p3-final-cta-button{display:block;width:90%;max-width:360px;margin:28px auto 0;padding:0 20px;height:56px;line-height:56px;background:var(--rs-red);color:var(--rs-white);text-align:center;font:700 14px/56px Barlow,Impact,sans-serif;letter-spacing:.06em;text-decoration:none}
+.p3-final-cta-button span{margin-left:8px}
+.p3-final-cta-button:focus-visible{outline:2px solid var(--rs-white);outline-offset:3px}
+.p3-final-cta-tagline{margin-top:24px;font-size:10px;letter-spacing:.1em;line-height:1.8;color:#8b9090;text-align:center}
+
+.p3-footer{background:#0a0a0b;border-top:1px solid #ffffff14;padding:56px 20px calc(72px + env(safe-area-inset-bottom,0px));text-align:center}
+/* Two classes so the margin out-ranks `.rs-shield p{margin:0}` */
+.p3-footer .p3-footer-signoff{max-width:420px;margin:0 auto;font:700 clamp(20px,6.6vw,30px)/1.15 Barlow,Impact,sans-serif;letter-spacing:.06em;color:var(--rs-white);text-wrap:balance}
+.p3-footer-signoff span{display:block;margin-top:12px;font:400 clamp(14px,4vw,17px)/1.5 Arial,Helvetica,sans-serif;letter-spacing:normal;color:#b5b8b8}
+/* The RS mark stands in for the word "RS": as tall as the capitals beside it (the PNG has ~23% clear space above and below the letters, hence .93em) and dropped onto the text baseline. */
+.p3-footer-signoff .p3-footer-logo{display:inline-block;height:.93em;width:auto;vertical-align:-.086em;margin:0 -.12em 0 -.14em}
+
+@media(max-width:599px){
+  .p3-footer{padding:28px 20px calc(16px + env(safe-area-inset-bottom,0px))}
+  .p3-footer .p3-footer-signoff{font-size:24px;line-height:1.3;letter-spacing:.02em}
+  .p3-footer-signoff span{margin-top:12px;font-size:15px;line-height:1.6;color:var(--rs-white)}
+  .p3-footer-signoff .p3-footer-logo{height:24px;vertical-align:middle;margin:0 2px}
+}
+
+@media(min-width:900px){
+  .sb-item{padding:34px 0}
+}
+
+/* Match the RS mark to the heading capitals, accounting for transparent image padding. */
+.p3-content h2 .p3-heading-logo{display:inline-block;width:auto;height:.93em;vertical-align:-.086em;margin-left:.05em}
+
+.p3-compare-video h2 .p3-vs .p3-vs-s{color:var(--rs-white)}
+.p3-compare-video h2 .p3-heading-uv{color:var(--rs-red)}
+/* UV Lite: 70 vs 50 shown as two boxes with VS between them */
+.p3-compare-dual{max-width:400px}
+.p3-compare-dual-grid{display:grid;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:0 10px;align-items:center;margin-top:0}
+.p3-cdg-card{border:1px solid #ffffff26;padding:9px 8px 0;text-align:center}
+.p3-cdg-card:last-child{border-color:var(--family-accent)}
+.p3-cdg-name{margin:0 0 0;font:700 clamp(14px,4vw,17px)/1.05 Barlow,Impact,sans-serif;letter-spacing:.04em;color:var(--rs-white)}
+.p3-cdg-row{padding:5px 0;border-top:1px solid #ffffff14}
+.p3-cdg-row:first-of-type{border-top:0}
+.p3-cdg-card .p3-cdg-label{display:block;font-size:8.5px;line-height:1.35;letter-spacing:.06em;color:#9a9e9e;margin-bottom:1px}
+.p3-cdg-card .p3-cdg-value{display:block;text-align:center;font:700 clamp(17px,5vw,21px)/1 Barlow,Impact,sans-serif;color:var(--rs-white)}
+.p3-cdg-vs{font:700 14px/1 Barlow,Impact,sans-serif;letter-spacing:.1em;color:var(--rs-white)}

@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About RS Window Films | Trusted Window Film Experts</title>
+  <meta name="description" content="Learn about RS Window Films, our expertise in window film and paint protection solutions, and our commitment to quality installation and customer satisfaction.">
+  <link rel="canonical" href="https://www.rswindowfilm.com/about.html">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+  <style>
+    #navbar{background:#000 !important;border-bottom:1px solid rgba(255,255,255,.08);box-shadow:none !important;font-family:'Montserrat',system-ui,sans-serif}
+    #navbar nav{max-width:90rem}
+    .rs-nav{position:relative;left:7rem;gap:2.2rem;font-size:1rem;font-weight:600;margin-left:auto;margin-right:auto}
+    .rs-nav a{display:inline-flex;align-items:center;gap:.35rem;color:#fff;transition:color .2s}
+    .rs-nav a:hover{color:#ef4444}
+    .rs-dd{position:relative;padding:1rem 0}
+    .rs-dd-menu{position:absolute;top:100%;left:-1rem;min-width:12rem;padding:.5rem 0;background:#000;border:1px solid #334155;border-radius:.5rem;box-shadow:0 20px 40px rgba(0,0,0,.6);opacity:0;visibility:hidden;transform:translateY(6px);transition:all .2s}
+    .rs-dd:hover .rs-dd-menu{opacity:1;visibility:visible;transform:none}
+    .rs-dd-menu a{display:block;padding:.7rem 1rem}
+    .rs-dd-menu a:hover{background:#1e293b}
+    .rs-nav-cta{background:#dc2626;color:#fff;padding:.8rem 1.9rem;border-radius:999px;font-size:1rem;font-weight:600;transition:all .3s}
+    .rs-nav-cta:hover{background:#b91c1c;box-shadow:0 0 20px rgba(239,68,68,.6);transform:scale(1.05)}
+    main .text-slate-400,main .text-slate-300{color:#e5e7eb!important}
+    main li .text-red-600{color:#dc2626!important;font-family:Arial,sans-serif}
+  </style>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/rs-font.css">
+  <link rel="stylesheet" href="css/rs-footer.css?v=17">
+  <link rel="stylesheet" href="css/rs-mobile-menu.css?v=2">
+  <link rel="stylesheet" href="css/rs-motion.css?v=1">
+</head>
+<body class="bg-black text-white">
+
+  <!-- Navigation Bar -->
+  <header id="navbar" class="bg-black/70 backdrop-blur-md border-b border-white/10 fixed w-full z-50 transition-all duration-300">
+    <nav class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center justify-between h-16">
+
+        <!-- Logo -->
+        <a href="./" class="flex items-center h-full py-2">
+          <img src="assets/images/RS Film Logo.png" alt="RS" class="max-h-full w-auto object-contain" style="max-height: 40px;">
+        </a>
+
+        <!-- Desktop Menu -->
+        <ul class="rs-nav hidden md:flex items-center">
+          <li class="rs-dd">
+            <a href="window-film.html">Window Film
+              <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </a>
+            <div class="rs-dd-menu">
+              <a href="window-film.html#global-series">Global Series</a>
+              <a href="window-film.html#classic-series">Classic Series</a>
+              <a href="window-film.html#uv-kool">UV Kool</a>
+              <a href="window-film.html#uv-lite">UV Lite</a>
+            </div>
+          </li>
+          <li><a href="ppf.html">PPF</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="warranty.html">Warranty</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="updates.html">Updates</a></li>
+        </ul>
+
+        <!-- Legacy menu: hidden, kept only because js/main.js (shared) looks up these ids -->
+        <ul style="display:none">
+          <li><a href="#" class="relative hover:text-red-500 transition-colors after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-red-600 after:transition-all after:duration-300 hover:after:w-full">Home</a></li>
+
+          <!-- Products Dropdown -->
+          <li class="relative" id="productsDropdown">
+            <button id="productsBtn" class="flex items-center gap-1 hover:text-red-500 transition-colors">
+              Products
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            <!-- Dropdown -->
+            <div id="productsMenu" class="absolute left-0 top-8 hidden bg-black/95 backdrop-blur-sm border border-slate-700 rounded-lg shadow-2xl w-56 py-2 opacity-0 scale-95 translate-y-2 transition-all duration-200 ease-out">
+
+              <!-- Window Film -->
+              <div class="relative" id="windowFilmItem">
+                <div class="flex justify-between items-center px-4 py-3 hover:bg-slate-800 cursor-pointer transition-colors">
+                  <span>Window Film</span>
+                  <span>›</span>
+                </div>
+
+                <!-- Sub Dropdown -->
+                <div id="windowFilmMenu" class="absolute left-full top-0 hidden bg-black/95 backdrop-blur-sm border border-slate-700 rounded-lg w-56 py-2 opacity-0 scale-95 translate-x-2 transition-all duration-200 ease-out">
+                  <a href="products-pro-series.html" class="block px-4 py-3 hover:bg-slate-800 transition-colors">Pro Series</a>
+
+                  <!-- Static Series -->
+                  <div class="relative" id="staticSeriesItem">
+                    <div class="flex justify-between items-center px-4 py-3 hover:bg-slate-800 cursor-pointer transition-colors">
+                      <span>Static Series</span>
+                      <span>›</span>
+                    </div>
+
+                    <div id="staticSeriesMenu" class="absolute left-full top-0 hidden bg-black/95 backdrop-blur-sm border border-slate-700 rounded-lg w-56 py-2 opacity-0 scale-95 translate-x-2 transition-all duration-200 ease-out">
+                      <a href="window-film.html#global-series" class="block px-4 py-3 hover:bg-slate-800 transition-colors">Global Series</a>
+                      <a href="window-film.html#classic-series" class="block px-4 py-3 hover:bg-slate-800 transition-colors">Classic Series</a>
+                      <a href="window-film.html#uv-kool" class="block px-4 py-3 hover:bg-slate-800 transition-colors">UV Kool</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PPF -->
+              <a href="ppf.html" class="block px-4 py-3 hover:bg-slate-800 transition-colors">PPF</a>
+            </div>
+          </li>
+
+          <li><a href="about.html" class="relative hover:text-red-500 transition-colors after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-red-600 after:transition-all after:duration-300 hover:after:w-full">About</a></li>
+          <li><a href="warranty.html" class="relative hover:text-red-500 transition-colors after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-red-600 after:transition-all after:duration-300 hover:after:w-full">Warranty</a></li>
+          <li><a href="contact.html" class="relative hover:text-red-500 transition-colors after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-red-600 after:transition-all after:duration-300 hover:after:w-full">Contact</a></li>
+        </ul>
+
+
+        <!-- Mobile Menu Button -->
+        <button id="menuBtn" class="md:hidden text-2xl">
+          ☰
+        </button>
+
+      </div>
+    </nav>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden md:hidden bg-black border-t border-slate-800 fixed w-full z-40 mt-16">
+    <a href="#" class="block px-6 py-4 border-b border-slate-800 hover:bg-slate-800 transition-colors">Home</a>
+    
+    <!-- Mobile Products Accordion -->
+    <div>
+      <button id="mobileProductsBtn" class="w-full text-left px-6 py-4 border-b border-slate-800 hover:bg-slate-800 transition-colors flex justify-between items-center">
+        <span>Products</span>
+        <span id="productsArrow">▾</span>
+      </button>
+      <div id="mobileProductsMenu" class="hidden bg-slate-900">
+        <a href="window-film.html#global-series" class="block px-8 py-3 border-b border-slate-800 hover:bg-slate-800 transition-colors">Global Series</a>
+        <a href="window-film.html#classic-series" class="block px-8 py-3 border-b border-slate-800 hover:bg-slate-800 transition-colors">Classic Series</a>
+        <a href="window-film.html#uv-kool" class="block px-8 py-3 border-b border-slate-800 hover:bg-slate-800 transition-colors">UV Kool</a>
+        <a href="window-film.html#uv-lite" class="block px-8 py-3 border-b border-slate-800 hover:bg-slate-800 transition-colors">UV Lite</a>
+        <a href="ppf.html" class="block px-8 py-3 border-b border-slate-800 hover:bg-slate-800 transition-colors">PPF</a>
+      </div>
+    </div>
+    
+    <a href="about.html" class="block px-6 py-4 border-b border-slate-800 hover:bg-slate-800 transition-colors">About</a>
+    <a href="warranty.html" class="block px-6 py-4 border-b border-slate-800 hover:bg-slate-800 transition-colors">Warranty</a>
+    <a href="contact.html" class="block px-6 py-4 border-b border-slate-800 hover:bg-slate-800 transition-colors">Contact</a>
+    <a href="updates.html" class="block px-6 py-4 border-b border-slate-800 hover:bg-slate-800 transition-colors">Updates</a>
+    <a href="./#quote" class="block px-6 py-4 bg-red-600 hover:bg-red-700 transition-colors font-semibold">Get Quote</a>
+  </div>
+
+  <!-- Main Content -->
+  <main class="pt-16">
+
+    <!-- Hero Section -->
+    <section class="relative pt-28 pb-24 bg-gradient-to-br from-black via-slate-900 to-black">
+      <div class="max-w-6xl mx-auto px-6 text-center reveal">
+        <h1 class="text-4xl md:text-5xl font-bold text-white">
+          About <span class="text-red-600">RS</span>
+        </h1>
+
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="rs-about">
+      <div class="rs-about-inner">
+        <div class="rs-about-text">
+          <div class="rs-about-eyebrow">About RS</div>
+          <h2>Who We Are</h2>
+          <p>RS specializes in high-quality window films and paint protection solutions designed to enhance comfort, protect interiors, and elevate driving experience.</p>
+          <p>From heat control films to advanced UV protection and PPF, our products are carefully selected and professionally installed to meet the highest industry standards.</p>
+        </div>
+        <ul class="rs-about-points">
+          <li>Premium Materials</li>
+          <li>Professional Installation</li>
+          <li>Trusted Warranty</li>
+          <li>Customer-Centric Approach</li>
+        </ul>
+      </div>
+    </section>
+    <style>
+      .rs-about{scroll-margin-top:5rem;background:#000;padding:6rem 6vw;font-family:'Montserrat',system-ui,sans-serif;border-top:1px solid rgba(255,255,255,.08)}
+      .rs-about-inner{max-width:80rem;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.4fr) minmax(0,1fr);gap:4rem;align-items:center}
+      .rs-about-eyebrow{font-size:.8rem;line-height:1;letter-spacing:.35em;text-transform:uppercase;color:#dc2626;margin-bottom:1.25rem}
+      .rs-about h2{font-size:clamp(2rem,4vw,3.2rem);font-weight:800;text-transform:uppercase;letter-spacing:-.01em;color:#fff;margin:0 0 1.5rem}
+      .rs-about-lead{font-size:1.3rem;line-height:1.6;color:#fff}
+      .rs-about p{font-size:1.05rem;line-height:1.8;font-weight:300;color:#cbd5e1;margin:0 0 1.1rem}
+      .rs-about-link{display:inline-flex;gap:.6rem;margin-top:1rem;color:#fff;font-size:.85rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid #dc2626;padding-bottom:.3rem}
+      .rs-about-link span{color:#dc2626;transition:transform .25s}
+      .rs-about-link:hover span{transform:translateX(4px)}
+      .rs-about-points{list-style:none;margin:0;padding:0}
+      .rs-about-points li{padding:1.3rem 0 1.3rem 1.1rem;border-left:3px solid #e4343c;margin-bottom:1.2rem;color:#fff;font-size:1.15rem;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+      @media(max-width:800px){.rs-about-inner{grid-template-columns:1fr;gap:2.5rem}}
+    </style>
+
+    <!-- Why Choose Us -->
+    <style>
+      .rs-why{background:#000;padding:5rem 1.5rem;font-family:'Montserrat',system-ui,sans-serif}
+      .rs-why-inner{max-width:80rem;margin:0 auto}
+      .rs-why-head{text-align:center;max-width:46rem;margin:0 auto 3.5rem}
+      .rs-why-head h2{font-size:clamp(1.8rem,4vw,2.6rem);color:#fff;text-transform:uppercase;letter-spacing:.04em;margin:0 0 .8rem}
+      .rs-why-sub{color:#ef2b2b;font-weight:700;letter-spacing:.12em;text-transform:uppercase;font-size:.95rem;margin:0 0 1rem}
+      .rs-why-lead{color:#cbd5e1;line-height:1.8;margin:0}
+      .rs-why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+      .rs-why-card{background:#000;border:1px solid #1e293b;border-radius:.9rem;padding:2rem 1.6rem;transition:all .3s}
+      .rs-why-card:hover{border-color:#dc2626;transform:translateY(-4px)}
+      .rs-why-num{display:block;color:#ef2b2b;font-weight:800;letter-spacing:.14em;font-size:.85rem;margin-bottom:1rem}
+      .rs-why-card h3{color:#fff;font-size:1.15rem;text-transform:uppercase;letter-spacing:.05em;margin:0 0 .4rem}
+      .rs-why-tag{color:#fff;font-weight:600;margin:0 0 1rem;font-size:.95rem}
+      .rs-why-body{color:#94a3b8;font-size:.9rem;line-height:1.7;margin:0}
+      .rs-why-body strong{color:#e2e8f0;font-weight:600}
+      @media(max-width:900px){.rs-why-grid{grid-template-columns:1fr 1fr}}
+      @media(max-width:600px){.rs-why-grid{grid-template-columns:1fr}}
+    </style>
+    <section class="rs-why">
+      <div class="rs-why-inner">
+        <div class="rs-why-head reveal">
+          <h2>Why Choose Us</h2>
+          <p class="rs-why-sub">Because Every Detail Matters.</p>
+          <p class="rs-why-lead"><strong style="color:#fff">Protection You Can Trust. Results You Can See.</strong><br>Your car deserves more than just a film. It deserves precision, care and protection that lasts.</p>
+        </div>
+        <div class="rs-why-grid">
+          <article class="rs-why-card reveal">
+            <span class="rs-why-num">01</span>
+            <h3>Precision Installation</h3>
+            <p class="rs-why-tag">Clean. Seamless. Accurate.</p>
+            <p class="rs-why-body"><strong>Made to fit your car.</strong> Every panel is carefully installed for clean edges, seamless coverage and a refined finish.</p>
+          </article>
+          <article class="rs-why-card reveal">
+            <span class="rs-why-num">02</span>
+            <h3>Premium Materials</h3>
+            <p class="rs-why-tag">Protection. Clarity. Finish.</p>
+            <p class="rs-why-body"><strong>Protection without compromising appearance.</strong> High-quality PPF helps protect your original paint while maintaining the look of your vehicle.</p>
+          </article>
+          <article class="rs-why-card reveal">
+            <span class="rs-why-num">03</span>
+            <h3>Attention to Detail</h3>
+            <p class="rs-why-tag">Every panel. Every edge.</p>
+            <p class="rs-why-body"><strong>Every edge. Every curve. Every finish.</strong> We focus on the details that make the difference between an average installation and a premium one.</p>
+          </article>
+          <article class="rs-why-card reveal">
+            <span class="rs-why-num">04</span>
+            <h3>Expert Installation</h3>
+            <p class="rs-why-tag">Handled with care.</p>
+            <p class="rs-why-body"><strong>Your vehicle is in expert hands.</strong> Our trained installation team handles every vehicle with precision and care.</p>
+          </article>
+          <article class="rs-why-card reveal">
+            <span class="rs-why-num">05</span>
+            <h3>Road-Ready Protection</h3>
+            <p class="rs-why-tag">Built for everyday driving.</p>
+            <p class="rs-why-body"><strong>Protection for everyday driving.</strong> From stone chips and road debris to scratches and daily wear, your vehicle stays better protected.</p>
+          </article>
+          <article class="rs-why-card reveal">
+            <span class="rs-why-num">06</span>
+            <h3>Aftercare Support</h3>
+            <p class="rs-why-tag">Protection beyond installation.</p>
+            <p class="rs-why-body"><strong>Protection doesn't end at installation.</strong> We guide you on proper care and maintenance so your PPF continues to perform and look its best.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Our Services -->
+    <section class="rs-svc">
+      <div class="rs-svc-inner">
+        <div class="rs-svc-eyebrow">Our Services</div>
+        <h2>Protection for Every Part of Your Drive</h2>
+        <p class="rs-svc-lead">From everyday road protection to complete paint coverage, choose the PPF solution that fits your car.</p>
+        <div class="rs-svc-grid">
+          <article class="rs-svc-card">
+            <span class="rs-svc-num">01 — FULL BODY PPF</span>
+            <h3>Complete paint protection.</h3>
+            <p>Protect your vehicle from stone chips, scratches, road debris and everyday wear while keeping the original paint looking fresh.</p>
+            <a href="./#quote" class="rs-svc-link">Explore Full Body <span>→</span></a>
+          </article>
+          <article class="rs-svc-card">
+            <span class="rs-svc-num">02 — FRONT END PPF</span>
+            <h3>Protection where it matters most.</h3>
+            <p>Protect the bumper, bonnet, fenders, mirrors and other high-impact areas from everyday road damage.</p>
+            <a href="./#quote" class="rs-svc-link">Explore Front End <span>→</span></a>
+          </article>
+          <article class="rs-svc-card">
+            <span class="rs-svc-num">03 — CUSTOM PPF</span>
+            <h3>Protection built around your car.</h3>
+            <p>Choose specific panels or areas based on your driving needs, keeping your vehicle protected without unnecessary coverage.</p>
+            <a href="./#quote" class="rs-svc-link">Build Your Protection <span>→</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+    <style>
+      .rs-svc{background:#000;padding:5rem 6vw;font-family:'Montserrat',system-ui,sans-serif;border-top:1px solid rgba(255,255,255,.08)}
+      .rs-svc-inner{max-width:80rem;margin:0 auto}
+      .rs-svc-eyebrow{font-size:.8rem;line-height:1;letter-spacing:.35em;text-transform:uppercase;color:#dc2626;margin-bottom:1.25rem}
+      .rs-svc h2{font-size:clamp(1.6rem,3vw,2.6rem);font-weight:800;color:#fff;margin:0 0 1rem}
+      .rs-svc-lead{max-width:44rem;font-size:1.1rem;line-height:1.7;font-weight:300;color:#cbd5e1;margin:0 0 3rem}
+      .rs-svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(18rem,1fr));gap:1.75rem}
+      .rs-svc-card{position:relative;padding:2.2rem 2rem;border:1px solid rgba(255,255,255,.1);border-radius:1.1rem;background:linear-gradient(180deg,#0d0d0f,#050506);transition:transform .3s,border-color .3s,box-shadow .3s}
+      .rs-svc-card::before{content:"";position:absolute;left:0;right:0;top:0;height:3px;border-radius:1.1rem 1.1rem 0 0;background:linear-gradient(90deg,transparent,#dc2626,transparent)}
+      .rs-svc-card:hover{transform:translateY(-6px);border-color:rgba(220,38,38,.55);box-shadow:0 18px 40px rgba(220,38,38,.12)}
+      .rs-svc-num{display:block;font-size:.8rem;font-weight:700;letter-spacing:.22em;color:#dc2626;margin-bottom:1.2rem}
+      .rs-svc-card h3{font-size:1.35rem;font-weight:800;color:#fff;margin:0 0 .8rem;line-height:1.3}
+      .rs-svc-card p{font-size:1rem;line-height:1.75;font-weight:300;color:#cbd5e1;margin:0 0 1.6rem}
+      .rs-svc-link{display:inline-flex;align-items:center;gap:.6rem;color:#fff;font-size:.85rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;border-bottom:1px solid #dc2626;padding-bottom:.3rem;transition:color .25s}
+      .rs-svc-link span{color:#dc2626;transition:transform .25s}
+      .rs-svc-link:hover{color:#ef4444}
+      .rs-svc-link:hover span{transform:translateX(4px)}
+    </style>
+
+    <!-- Our Process -->
+    <style>
+      @media(min-width:768px){.rs-step{position:relative}.rs-step:not(:last-child)::after{content:"→";position:absolute;right:-1.65rem;top:50%;transform:translateY(-50%);width:1.5rem;text-align:center;color:#dc2626;font-size:1.4rem;font-weight:700;line-height:1}}
+      .rs-step-img{position:relative;aspect-ratio:4/3;margin-bottom:1rem;border-radius:.5rem;overflow:hidden;background:#0b0b0b}
+      .rs-step-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+      .rs-step-num{position:absolute;top:.5rem;left:.5rem;display:flex;align-items:center;justify-content:center;width:1.6rem;height:1.6rem;border-radius:50%;background:#dc2626;color:#fff;font-size:.8rem;font-weight:700;line-height:1;box-shadow:0 2px 8px rgba(0,0,0,.5)}
+    </style>
+    <section class="py-20 bg-slate-950">
+      <div class="max-w-6xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-white text-center mb-12 reveal">
+          Our Process
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-center">
+
+          <div class="rs-step reveal bg-black border border-slate-800 rounded-xl p-6 hover:border-red-600 transition">
+            <div class="rs-step-img">
+              <picture>
+                <source srcset="assets/images/process-consultation.webp" type="image/webp">
+                <img src="assets/images/convert.png" alt="Two RS specialists discussing film options on a laptop" width="640" height="480" loading="lazy" decoding="async" style="object-position:50% 50%">
+              </picture>
+              <span class="rs-step-num" aria-hidden="true">1</span>
+            </div>
+            <h3 class="text-white font-semibold">Consultation</h3>
+            <p class="text-slate-400 text-sm mt-2">Understand your needs</p>
+          </div>
+
+          <div class="rs-step reveal bg-black border border-slate-800 rounded-xl p-6 hover:border-red-600 transition">
+            <div class="rs-step-img">
+              <picture>
+                <source srcset="assets/images/process-film.webp" type="image/webp">
+                <img src="assets/images/film (1).png" alt="Clear window film sheet on a workshop table" width="640" height="480" loading="lazy" decoding="async" style="object-position:50% 50%">
+              </picture>
+              <span class="rs-step-num" aria-hidden="true">2</span>
+            </div>
+            <h3 class="text-white font-semibold">Product Selection</h3>
+            <p class="text-slate-400 text-sm mt-2">Choose the best fit</p>
+          </div>
+
+          <div class="rs-step reveal bg-black border border-slate-800 rounded-xl p-6 hover:border-red-600 transition">
+            <div class="rs-step-img">
+              <picture>
+                <source srcset="assets/images/process-install.webp" type="image/webp">
+                <img src="assets/images/apply.jpg" alt="Technician applying window film to a car door window" width="640" height="480" loading="lazy" decoding="async" style="object-position:50% 35%">
+              </picture>
+              <span class="rs-step-num" aria-hidden="true">3</span>
+            </div>
+            <h3 class="text-white font-semibold">Professional Installation</h3>
+            <p class="text-slate-400 text-sm mt-2">Expert application</p>
+          </div>
+
+          <div class="rs-step reveal bg-black border border-slate-800 rounded-xl p-6 hover:border-red-600 transition">
+            <div class="rs-step-img">
+              <picture>
+                <source srcset="assets/images/process-inspection.webp" type="image/webp">
+                <img src="assets/images/inspection.jpg" alt="Car inspection checklist on a clipboard" width="640" height="480" loading="lazy" decoding="async" style="object-position:50% 60%">
+              </picture>
+              <span class="rs-step-num" aria-hidden="true">4</span>
+            </div>
+            <h3 class="text-white font-semibold">Final Inspection</h3>
+            <p class="text-slate-400 text-sm mt-2">Quality assurance</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Trust & Warranty -->
+    <section class="py-20 bg-black text-center">
+      <div class="max-w-4xl mx-auto px-6 reveal">
+        <div class="mb-6 flex justify-center">
+          <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#ef2b2b" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 3v5.5c0 4.6-3.2 8.2-8 9.5-4.8-1.3-8-4.9-8-9.5V6l8-3z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+        </div>
+        <h2 class="text-3xl font-bold text-white">Trusted & Backed by Warranty</h2>
+
+        <p class="mt-4 text-slate-400 max-w-2xl mx-auto">
+          All our products come with up to <span class="text-red-600 font-semibold">36 months warranty</span>
+          and are installed by experienced professionals.
+        </p>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-20 bg-gradient-to-r from-red-600 to-red-700 text-center">
+      <div class="max-w-4xl mx-auto px-6 reveal">
+        <h2 class="text-3xl md:text-4xl font-bold text-white">
+          Ready to Upgrade Your Vehicle?
+        </h2>
+
+        <p class="mt-4 text-red-100 max-w-xl mx-auto">
+          Get professional window film installation with premium materials and expert service.
+        </p>
+
+        <a href="./#quote"
+           class="inline-block mt-6 bg-black px-10 py-4 rounded-full font-semibold text-white
+                  hover:bg-slate-900 hover:scale-105 transition-all duration-200">
+          Get a Free Quote
+        </a>
+      </div>
+    </section>
+
+    <!-- no rule above the copyright bar on this page -->
+    <style>.rs-footer-bottom{border-top:0}</style>
+    <!-- Footer -->
+  <footer class="rs-footer">
+    <div class="rs-footer-main">
+      <div class="rs-footer-car" aria-hidden="true"></div>
+      <div class="rs-footer-inner">
+
+        <div class="rs-f-brand">
+          <a href="./"><img src="assets/images/RS Film Logo 2.png" alt="RS Heat Control Glazing"></a>
+          <span class="rs-f-bar"></span>
+          <p>Professional Window Film<br>&amp; PPF Solutions</p>
+          <div class="rs-f-social">
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6"/></svg></a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M14 8h3V4h-3a4 4 0 0 0-4 4v3H7v4h3v6h4v-6h3l1-4h-4V8z"/></svg></a>
+            <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="4"/><path d="M10 9l5 3-5 3V9z"/></svg></a>
+            <a href="https://wa.me/919665729616" target="_blank" rel="noopener" aria-label="WhatsApp">
+              <svg viewBox="0 0 24 24"><path d="M3 21l1.6-4.7A8.5 8.5 0 1 1 8 19.6L3 21z"/><path d="M9 8.5c0 3.5 3 6.5 6.5 6.5l1-1.5-2-1-1 .8c-1-.4-2-1.4-2.4-2.4l.8-1-1-2L9 8.5z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="rs-f-col">
+          <span class="rs-f-bar"></span>
+          <h3>Contact Us</h3>
+          <ul class="rs-f-contact">
+            <li>
+              <i><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2z"/></svg></i>
+              <div><small>Phone</small><a href="tel:+919665729616" class="rs-f-red">+91 9665729616</a></div>
+            </li>
+            <li>
+              <i><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></i>
+              <div><small>Email</small><a href="mailto:info@rsaccessories.in">info@rsaccessories.in</a></div>
+            </li>
+            <li>
+              <i><svg viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg></i>
+              <div><small>Address</small><span>RS Car Accessories,<br>India</span></div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="rs-f-col rs-f-div">
+          <span class="rs-f-bar"></span>
+          <h3>Quick Links</h3>
+          <ul class="rs-f-links">
+            <li><a href="./">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="warranty.html">Warranty</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="updates.html">Updates</a></li>
+          </ul>
+        </div>
+
+        <div class="rs-f-col rs-f-div">
+          <span class="rs-f-bar"></span>
+          <h3>Our Products</h3>
+          <ul class="rs-f-links">
+            <li><a href="window-film.html#global-series">Global Series</a></li>
+            <li><a href="window-film.html#classic-series">Classic Series</a></li>
+            <li><a href="window-film.html#uv-kool">UV Kool</a></li>
+            <li><a href="window-film.html#uv-lite">UV Lite</a></li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <div class="rs-footer-bottom">
+      <span>&copy; 2025 RS. All rights reserved.</span>
+      <nav><a href="privacy-policy.html">Privacy Policy</a><i></i><a href="terms-conditions.html">Terms &amp; Conditions</a><i></i><a href="disclaimer.html">Disclaimer</a><i></i><a href="contact.html">Contact</a></nav>
+    </div>
+  </footer>
+
+  </main>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+  <a href="https://wa.me/919665729616" class="rs-wa-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg></a>
+  <script src="js/rs-wa.js"></script>
+  <script src="js/rs-motion.js?v=1"></script>
+</body>
+</html>

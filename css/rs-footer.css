@@ -1,0 +1,122 @@
+/* Footer: matches the supplied mockup */
+.rs-footer{background:#000;font-family:'Montserrat',system-ui,sans-serif;color:#cbd5e1}
+.rs-footer-main{position:relative;overflow:hidden;min-height:32rem;border-top:1px solid rgba(255,255,255,.06);
+  background:
+    radial-gradient(ellipse 22% 55% at 93% 45%,rgba(220,38,38,.38),transparent 70%),
+    radial-gradient(ellipse 30% 22% at 88% 0%,rgba(150,152,165,.28),transparent 70%),
+    radial-gradient(ellipse 30% 70% at 0% 70%,rgba(220,38,38,.22),transparent 70%),
+    linear-gradient(#000,#000)}
+.rs-footer-main::before{content:"";position:absolute;left:0;top:0;bottom:0;width:25%;pointer-events:none;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 440 510' preserveAspectRatio='none'><defs><linearGradient id='g' x1='0' x2='1'><stop offset='0' stop-color='%23dc2626' stop-opacity='.38'/><stop offset='1' stop-color='%23dc2626' stop-opacity='0'/></linearGradient></defs><polygon points='0,91 281,91 385,250 385,510 0,510' fill='url(%23g)'/><polyline points='0,91 281,91 385,250' fill='none' stroke='%23ef2b2b' stroke-opacity='.8' stroke-width='1.5' vector-effect='non-scaling-stroke'/><polyline points='0,400 106,510' fill='none' stroke='%23ef2b2b' stroke-opacity='.8' stroke-width='1.5' vector-effect='non-scaling-stroke'/></svg>") 0 0/100% 100% no-repeat}
+.rs-footer-car{position:absolute;top:0;right:0;bottom:0;width:42%;background:url('../assets/images/window%20film/footer.png') right bottom/contain no-repeat;pointer-events:none;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%);mask-image:linear-gradient(90deg,transparent 0,#000 12%)}
+.rs-footer-inner{position:relative;z-index:1;display:grid;grid-template-columns:28% 17.7% 15.3% 17%;gap:0;align-items:start;padding:7rem 0 4rem}
+.rs-f-brand{padding-left:25%;padding-top:0;margin-top:-1rem}
+.rs-f-brand img{width:14.5rem;max-width:100%;height:auto;display:block;margin-bottom:1.1rem}
+.rs-f-bar{display:block;width:2.1rem;height:3px;background:#dc2626;margin-bottom:1.8rem}
+.rs-f-brand .rs-f-bar{margin-bottom:1.6rem}
+.rs-f-brand p{font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;line-height:1.9;color:#cbd5e1;margin:0 0 1.8rem}
+.rs-f-social{display:flex;gap:.75rem}
+.rs-f-social a{display:inline-flex;width:3rem;height:3rem;border:1px solid rgba(255,255,255,.3);border-radius:50%;align-items:center;justify-content:center;transition:all .2s}
+.rs-f-social a:hover{border-color:#dc2626;background:rgba(220,38,38,.18)}
+.rs-f-social svg{width:1.3rem;height:1.3rem;fill:none;stroke:#fff;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.rs-footer h3{font-size:1.15rem;color:#fff;margin:0 0 1.7rem;letter-spacing:.03em}
+.rs-f-col{padding-left:2.2rem;min-height:18.5rem}
+.rs-f-col.rs-f-div{border-left:1px solid rgba(255,255,255,.12);padding-left:2.6rem}
+.rs-f-col:first-of-type{padding-left:0}
+.rs-f-contact,.rs-f-links{list-style:none;margin:0;padding:0}
+.rs-f-contact li{display:flex;gap:1rem;margin-bottom:1.1rem;align-items:center}
+.rs-f-contact i{flex:none;display:flex;align-items:center;justify-content:center;width:3.2rem;height:3.2rem;border:1px solid rgba(255,255,255,.3);border-radius:50%}
+.rs-f-contact svg{width:1.3rem;height:1.3rem;fill:none;stroke:#ef2b2b;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.rs-f-contact small{display:block;font-size:.9rem;color:#e2e8f0;margin-bottom:.2rem}
+.rs-f-contact a,.rs-f-contact span{font-size:1rem;line-height:1.5;color:#cbd5e1}
+.rs-f-contact a.rs-f-red{color:#ef2b2b;font-weight:700}
+.rs-f-contact a:hover{color:#fff}
+.rs-f-links li{margin-bottom:1.1rem}
+.rs-f-links a{display:inline-flex;align-items:center;gap:1rem;font-size:1.05rem;color:#e2e8f0;transition:color .2s}
+.rs-f-links a::before{content:"\203A";color:#ef2b2b;font-weight:700;font-size:1.6rem;line-height:1}
+.rs-f-links a:hover{color:#fff}
+.rs-footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;background:#000;border-top:1px solid rgba(255,255,255,.12);padding:2.4rem 9vw 2.4rem 7vw;font-size:.95rem;color:#cbd5e1;max-width:none}
+.rs-footer-bottom nav{display:flex;gap:1.3rem;align-items:center;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase}
+.rs-footer-bottom nav a{color:#cbd5e1}.rs-footer-bottom nav a:hover{color:#fff}
+.rs-footer-bottom nav i{width:1px;height:1rem;background:rgba(255,255,255,.35)}
+@media(max-width:1100px){.rs-footer-main{min-height:0}.rs-footer-inner{grid-template-columns:1fr 1fr;gap:2rem;padding:3.5rem 6vw}.rs-f-brand{padding-left:0;margin-top:0}.rs-f-col,.rs-f-col.rs-f-div{border-left:0;padding-left:0;min-height:0}.rs-footer-car{width:100%;opacity:.3}.rs-footer-main::before{display:none}}
+@media(max-width:600px){.rs-footer-inner{grid-template-columns:1fr}.rs-footer-bottom{padding:1.5rem 6vw}}
+
+/* Site-wide pure black backgrounds */
+html,body{background:#000!important}
+.bg-slate-900,.bg-slate-950,.bg-black\/70,.bg-black\/95{background-color:#000!important}
+[class*="from-black"],[class*="from-slate-9"],[class*="via-slate-900"],[class*="to-slate-950"],[class*="to-black"]{background-image:none!important;background-color:#000!important}
+.rs-wf-hero,.rs-wf-stats,.rs-ppf,.rs-drive{background:#000!important}
+
+/* Floating WhatsApp button */
+.rs-wa-float{position:fixed;right:1.5rem;bottom:1.5rem;z-index:60;width:4rem;height:4rem;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(0,0,0,.5);animation:rs-wa-bob 2.4s ease-in-out infinite}
+.rs-wa-float::before{content:"";position:absolute;inset:0;border-radius:50%;background:#25d366;z-index:-1;animation:rs-wa-pulse 2.4s ease-out infinite}
+.rs-wa-float:hover{animation-play-state:paused;box-shadow:0 8px 26px rgba(37,211,102,.55)}
+.rs-wa-float svg{width:2.4rem;height:2.4rem;fill:#fff;display:block}
+@keyframes rs-wa-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes rs-wa-pulse{0%{transform:scale(1);opacity:.55}100%{transform:scale(1.7);opacity:0}}
+@media(max-width:600px){.rs-wa-float{right:1rem;bottom:1rem;width:3.5rem;height:3.5rem}.rs-wa-float svg{width:2.1rem;height:2.1rem}}
+@media(prefers-reduced-motion:reduce){.rs-wa-float,.rs-wa-float::before{animation:none}}
+
+/* Key Benefits: red-bar points */
+.rs-pt-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr));gap:1.75rem 2rem}
+.rs-pt-benefit{padding:0 0 0 1.1rem;border-left:3px solid #e4343c}
+.rs-pt-benefit h3{font-size:1rem;font-weight:700;color:#fff;margin:0 0 .5rem;text-transform:uppercase}
+.rs-pt-benefit p{margin:0;font-size:1rem;line-height:1.75;font-weight:300;color:#cbd5e1}
+.rs-pt-icon{display:block;width:3.2rem;height:3.2rem;margin-bottom:1rem;fill:none;stroke:#fff;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* Footer right-side image: rscar.png (70 KB WebP first, PNG fallback). Flush to the bottom and right edges; fades in from the left and top. The red/grey glows behind the old car are dropped on desktop (min-width:1101px) so the photo's ceiling blends into the plain footer background. */
+.rs-footer-car{background:url('../assets/images/rscar.png') right bottom/100% 100% no-repeat!important;background-image:image-set(url('../assets/images/rscar.webp') type('image/webp'),url('../assets/images/rscar.png') type('image/png'))!important;top:auto!important;height:auto!important;aspect-ratio:1582/994;width:min(24%,540px)!important;-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.45) 6%,#000 14%),linear-gradient(180deg,transparent 0,transparent 9%,rgba(0,0,0,.3) 16%,rgba(0,0,0,.75) 26%,#000 36%)!important;-webkit-mask-composite:source-in!important;mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.45) 6%,#000 14%),linear-gradient(180deg,transparent 0,transparent 9%,rgba(0,0,0,.3) 16%,rgba(0,0,0,.75) 26%,#000 36%)!important;mask-composite:intersect!important}@media(min-width:1500px){.rs-footer-car{width:min(31%,540px)!important}}@media(min-width:1101px){.rs-footer-main{background:radial-gradient(ellipse 30% 70% at 0% 70%,rgba(220,38,38,.22),transparent 70%),linear-gradient(#000,#000)}}
+/* tablet / mobile: a faint full-width backdrop behind the columns (as the rule at line 41 intended), not a strip under the text */
+@media(max-width:1100px){.rs-footer-car{width:100%!important;opacity:.3;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 14%)!important;mask-image:linear-gradient(180deg,transparent 0,#000 14%)!important}}
+
+/* Shorter footer */
+@media(min-width:1101px){.rs-footer-main{min-height:0}.rs-footer-inner{padding:3.5rem 0 3rem}}
+
+/* Footer: tighter height */
+@media(min-width:1101px){
+  .rs-footer-inner{padding:2.5rem 0 2rem}
+  .rs-f-col{min-height:0}
+  .rs-f-brand{margin-top:0}
+  .rs-f-brand img{width:11.5rem;margin-bottom:.7rem}
+  .rs-f-brand .rs-f-bar{margin-bottom:1rem}
+  .rs-f-brand p{margin-bottom:1.1rem;line-height:1.7}
+  .rs-footer h3{margin-bottom:1.1rem}
+  .rs-f-contact li,.rs-f-links li{margin-bottom:.7rem}
+  .rs-footer-bottom{padding-top:1.4rem;padding-bottom:1.4rem}
+}
+
+/* Site-wide: trim oversized vertical section spacing (desktop/tablet) */
+@media(min-width:768px){
+  .py-28{padding-top:4.5rem!important;padding-bottom:4.5rem!important}
+  .py-24{padding-top:4rem!important;padding-bottom:4rem!important}
+  .py-20{padding-top:3.5rem!important;padding-bottom:3.5rem!important}
+  .py-16{padding-top:2.75rem!important;padding-bottom:2.75rem!important}
+  .rs-ppf,.rs-about,.rs-drive{padding-top:4rem!important;padding-bottom:4rem!important}
+  .rs-svc,.rs-why{padding-top:3.5rem!important;padding-bottom:3.5rem!important}
+  .rs-wf-hero{padding-top:3.5rem!important;padding-bottom:3.5rem!important}
+  .rs-ppf-intro,.rs-ppf-benefits{margin-bottom:2.5rem!important}
+  .rs-ppf-split{padding:2rem 0!important}
+  .rs-svc-lead{margin-bottom:2rem!important}
+}
+
+/* Window Film page spacing */
+.rs-wf-stats{margin-top:2.5rem!important}
+.rs-wf-stats div{padding:1.2rem 1rem!important}
+@media(min-width:768px){.rs-wf-benefits{padding-top:1.5rem!important;padding-bottom:3rem!important}}
+@media(min-width:768px){.rs-wf-hero{padding-bottom:1rem!important}}
+
+/* PPF coming-soon tag */
+.rs-soon{display:inline-block;margin-left:.45rem;padding:.15rem .5rem;border-radius:999px;background:#dc2626;color:#fff;font-size:.6rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;line-height:1.2;vertical-align:middle}
+.rs-soon-banner{background:#dc2626;color:#fff;text-align:center;padding:.8rem 1rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:.85rem}
+
+/* Mobile: keep footer links inside the viewport and never allow sideways scroll */
+.rs-footer-bottom nav{flex-wrap:wrap}
+@media(max-width:600px){.rs-footer-bottom nav{gap:.6rem 1rem;font-size:.72rem;letter-spacing:.1em}.rs-footer-bottom nav i{display:none}}
+html,body{overflow-x:clip}
+
+/* Tablet / mobile: show the footer car as its own picture under the link columns (not a faint backdrop behind them), so it never sits behind the text. */
+@media(max-width:1100px){
+  .rs-footer-main{display:flex;flex-direction:column}
+  .rs-footer-main .rs-footer-inner{padding-bottom:1rem}
+  .rs-footer-car{order:2;position:relative!important;top:auto!important;right:auto!important;bottom:auto!important;width:100%!important;height:clamp(11rem,38vw,20rem)!important;aspect-ratio:auto!important;opacity:1!important;background-size:cover!important;background-position:center bottom!important;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 32%)!important;mask-image:linear-gradient(180deg,transparent 0,#000 32%)!important}
+}

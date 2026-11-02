@@ -1,0 +1,30 @@
+/* PPF page: premium "Key Benefits" cards (replaces the plain red-bar text columns).
+   Scoped to .rs-ppfb, so nothing here touches the rest of the page or other pages.
+   Headings pick up Syncopate (uppercase) from rs-font.css; body copy is Montserrat (300 / 600 / 800 are the weights loaded). */
+
+.rs-ppfb{--ppfb-red:#e33324;--ppfb-card:#000;--ppfb-line:#242424;--ppfb-text:#a1a1aa;--ppfb-gap:1.25rem;margin:0 0 3.5rem;font-family:'Montserrat',system-ui,sans-serif}
+
+/* ---------- heading block ---------- (selectors are scoped under .rs-ppfb so they beat the page's inline `.rs-ppf h3` / `.rs-ppf p` rules) */
+.rs-ppfb .rs-ppfb-eyebrow{margin:0;font-size:.78rem;font-weight:600;line-height:1;letter-spacing:.3em;text-transform:uppercase;color:var(--ppfb-red)}
+.rs-ppfb .rs-ppfb-title{margin:1rem 0 0;font-size:clamp(1.3rem,2.6vw,2.2rem);line-height:1.15;letter-spacing:.02em;color:#fff}
+.rs-ppfb .rs-ppfb-sub{margin:1rem 0 0;max-width:40rem;font-size:1.05rem;font-weight:300;line-height:1.7;color:var(--ppfb-text)}
+
+/* ---------- cards: 4 + 3 centred on desktop, 2 per row on tablet, 1 on mobile ---------- */
+.rs-ppfb-grid{list-style:none;margin:2.5rem 0 0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:var(--ppfb-gap)}
+.rs-ppfb-card{position:relative;flex:0 0 100%;box-sizing:border-box;min-width:0;padding:1.75rem 1.5rem 1.85rem;background:var(--ppfb-card);border:1px solid var(--ppfb-line);border-radius:12px;
+  transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease}
+.rs-ppfb-card:hover{transform:translateY(-4px);border-color:var(--ppfb-red);box-shadow:0 18px 34px -20px rgba(0,0,0,.95)}
+.rs-ppfb-num{position:absolute;top:1.35rem;right:1.4rem;font-size:.78rem;font-weight:600;letter-spacing:.14em;line-height:1;color:#52525b;transition:color .3s ease}
+.rs-ppfb-card:hover .rs-ppfb-num{color:var(--ppfb-red)}
+.rs-ppfb-ico{display:flex;align-items:center;justify-content:center;width:3rem;height:3rem;border-radius:10px;background:rgba(227,51,36,.12);border:1px solid rgba(227,51,36,.28);transition:background .3s ease,border-color .3s ease}
+.rs-ppfb-card:hover .rs-ppfb-ico{background:rgba(227,51,36,.2);border-color:rgba(227,51,36,.5)}
+.rs-ppfb-ico svg{display:block;width:1.5rem;height:1.5rem;fill:none;stroke:var(--ppfb-red);stroke-width:1.75;stroke-linecap:round;stroke-linejoin:round}
+.rs-ppfb .rs-ppfb-card h4{margin:1.35rem 0 .6rem;font-size:.9rem;line-height:1.4;letter-spacing:.05em;color:#fff}
+.rs-ppfb .rs-ppfb-card p{margin:0;font-size:.95rem;font-weight:300;line-height:1.7;color:var(--ppfb-text)}
+
+@media(min-width:640px){.rs-ppfb-card{flex-basis:calc((100% - var(--ppfb-gap)) / 2)}}
+@media(min-width:1100px){.rs-ppfb-card{flex-basis:calc((100% - 3 * var(--ppfb-gap)) / 4)}}
+@media(prefers-reduced-motion:reduce){
+  .rs-ppfb-card,.rs-ppfb-num,.rs-ppfb-ico{transition:none}
+  .rs-ppfb-card:hover{transform:none}
+}

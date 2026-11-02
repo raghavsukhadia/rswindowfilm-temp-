@@ -1,0 +1,81 @@
+/* Updates page: "Latest Updates" hero + feed of update cards.
+   Mirrors the contact page look (rs-contact.css) and is scoped to .rs-up, so nothing here leaks to other pages.
+   Headings pick up Syncopate from rs-font.css; body copy is Montserrat (300 / 600 / 800 are the weights loaded). */
+
+/* ---------- nav: glossy black, hairline divider, subtle active state (same as the contact page) ---------- */
+#navbar{background:linear-gradient(180deg,#111113 0%,#060607 55%,#000 100%)!important;border-bottom:0!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.07)!important}
+#navbar::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(255,255,255,.14) 18%,rgba(228,52,60,.5) 50%,rgba(255,255,255,.14) 82%,transparent)}
+.rs-nav a[aria-current="page"]{position:relative;color:#ff5a5f}
+.rs-nav a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:-.45rem;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,#e4343c,transparent);box-shadow:0 0 10px rgba(228,52,60,.7)}
+
+/* ---------- section ---------- */
+.rs-up{--up-red:#e4343c;--up-red-hi:#ff5a5f;--up-mute:#97a3b8;
+  position:relative;overflow:hidden;isolation:isolate;font-family:'Montserrat',system-ui,sans-serif;text-align:center;
+  min-height:calc(100vh - 4rem);padding:5.5rem 1.5rem 5.5rem;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% -8%,rgba(228,52,60,.26),transparent 68%),
+    radial-gradient(ellipse 55% 45% at 50% 108%,rgba(150,12,24,.34),transparent 70%),
+    radial-gradient(ellipse 30% 40% at 0% 55%,rgba(228,52,60,.08),transparent 70%),
+    radial-gradient(ellipse 30% 40% at 100% 55%,rgba(228,52,60,.08),transparent 70%),
+    linear-gradient(180deg,#050506 0%,#09070a 52%,#000 100%)}
+/* fine diagonal lines, masked to fade out toward the edges: a quiet nod to film / carbon weave */
+.rs-up::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background:repeating-linear-gradient(115deg,rgba(255,255,255,.035) 0 1px,transparent 1px 11px);
+  -webkit-mask-image:radial-gradient(ellipse 60% 70% at 50% 40%,#000,transparent 75%);mask-image:radial-gradient(ellipse 60% 70% at 50% 40%,#000,transparent 75%)}
+/* hairline where the section meets the next one */
+.rs-up::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;z-index:-1;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(228,52,60,.45) 50%,transparent)}
+.rs-up-inner{position:relative;z-index:2;max-width:74rem;margin:0 auto}
+
+/* ---------- heading block ---------- */
+.rs-up h1{margin:0;font-size:clamp(1.9rem,5vw,4.5rem);line-height:1.05;letter-spacing:.015em;color:#fff}
+.rs-up h1 .rs-up-red{color:var(--up-red)}
+.rs-up-sub{margin:1.75rem auto 0;max-width:40rem;font-size:clamp(1.05rem,1.7vw,1.45rem);font-weight:600;line-height:1.4;letter-spacing:.01em;color:#fff}
+.rs-up-sub::after{content:"";display:block;width:3rem;height:2px;margin:1.35rem auto 0;border-radius:2px;background:linear-gradient(90deg,transparent,var(--up-red),transparent);box-shadow:0 0 12px rgba(228,52,60,.7)}
+.rs-up-lead{margin:1.25rem auto 0;max-width:41rem;font-size:1.05rem;font-weight:300;line-height:1.8;color:var(--up-mute)}
+
+/* "Coming soon" badge under the heading block */
+.rs-up-soon{display:inline-flex;align-items:center;gap:.8rem;margin:2.25rem 0 0;padding:.65rem 1.5rem;border:1px solid rgba(228,52,60,.4);border-radius:999px;background:rgba(228,52,60,.09);font-size:.85rem;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:var(--up-red-hi);box-shadow:0 0 34px -12px rgba(228,52,60,.6)}
+.rs-up-soon::before{content:"";width:.5rem;height:.5rem;border-radius:50%;background:var(--up-red);box-shadow:0 0 10px 2px rgba(228,52,60,.75);animation:rsUpPulse 1.8s ease-in-out infinite}
+@keyframes rsUpPulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.35;transform:scale(.7)}}
+
+/* ---------- feed of update cards ---------- */
+.rs-up-feed{display:grid;gap:1.5rem;max-width:52rem;margin:3.25rem auto 0;text-align:left}
+.rs-up-card{position:relative;padding:2rem 2.25rem 2.1rem;border-radius:1.15rem;overflow:hidden;
+  background:linear-gradient(165deg,rgba(255,255,255,.065) 0%,rgba(255,255,255,.015) 38%,rgba(228,52,60,.05) 100%),#0a0a0c;
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  box-shadow:0 34px 60px -28px rgba(0,0,0,.95),0 0 70px -34px rgba(228,52,60,.55),inset 0 1px 0 rgba(255,255,255,.07);
+  transition:box-shadow .45s}
+/* thin metallic border: bright top-left edge falling off to a red lower-right */
+.rs-up-edge{position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;
+  background:linear-gradient(145deg,rgba(255,255,255,.38),rgba(255,255,255,.07) 34%,rgba(255,255,255,.05) 62%,rgba(228,52,60,.6));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+/* red light bar along the lower edge */
+.rs-up-card::after{content:"";position:absolute;left:14%;right:14%;bottom:0;height:2px;pointer-events:none;opacity:.55;
+  background:linear-gradient(90deg,transparent,var(--up-red),transparent);box-shadow:0 0 22px 2px rgba(228,52,60,.55)}
+.rs-up-card:hover{box-shadow:0 44px 70px -28px rgba(0,0,0,.95),0 0 90px -28px rgba(228,52,60,.75),inset 0 1px 0 rgba(255,255,255,.1)}
+
+.rs-up-meta{display:flex;flex-wrap:wrap;align-items:center;gap:.9rem;margin:0 0 1.1rem}
+.rs-up-meta time{font-size:.74rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--up-mute)}
+.rs-up-pill{padding:.38rem 1rem;border:1px solid rgba(228,52,60,.4);border-radius:999px;background:rgba(228,52,60,.09);font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--up-red-hi)}
+.rs-up-card h3{margin:0;font-size:clamp(.95rem,1.6vw,1.15rem);line-height:1.5;letter-spacing:.06em;color:#fff}
+.rs-up-card p{margin:.9rem 0 0;font-size:1rem;font-weight:300;line-height:1.8;color:var(--up-mute)}
+.rs-up-link{display:inline-flex;align-items:center;gap:.55rem;margin-top:1.3rem;font-size:.9rem;font-weight:600;letter-spacing:.04em;color:var(--up-red-hi);transition:gap .3s,color .2s}
+.rs-up-link::after{content:"\2192"}
+.rs-up-link:hover,.rs-up-link:focus-visible{gap:.85rem;color:#fff}
+.rs-up-link:focus-visible{outline:2px solid var(--up-red-hi);outline-offset:4px;border-radius:.25rem}
+
+/* ---------- entrance (cooperates with rs-motion.js: starts once it flags the page ready) ---------- */
+@keyframes rsUpIn{from{opacity:0;transform:translate3d(0,22px,0)}to{opacity:1;transform:none}}
+html.rs-mo-ready .rs-up [data-up]{animation:rsUpIn .9s cubic-bezier(.16,1,.3,1) var(--d,0ms) both}
+
+/* ---------- responsive ---------- */
+@media(max-width:720px){
+  .rs-up{padding:3.5rem 1.25rem 3.5rem}
+  .rs-up-feed{margin-top:2.5rem;gap:1.25rem}
+  .rs-up-card{padding:1.6rem 1.35rem 1.7rem}
+}
+@media(prefers-reduced-motion:reduce){
+  html.rs-mo-ready .rs-up [data-up]{animation:none}
+  .rs-up-soon::before{animation:none}
+  .rs-up-card,.rs-up-link{transition:none}
+}

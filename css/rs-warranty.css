@@ -1,0 +1,118 @@
+/* Warranty page: luxury automotive layout.
+   Everything is scoped to .rs-wr, so nothing here leaks to other pages. The header, footer and WhatsApp button are untouched.
+   Headings pick up Syncopate (uppercase) from rs-font.css; body copy is Montserrat (300 / 600 / 800 are the weights loaded). */
+
+.rs-wr{--wr-bg:#050505;--wr-bg2:#0a0a0c;--wr-red:#e82935;--wr-btn:#d9222e;--wr-btn-hi:#bf1c27;--wr-text:#a9b7c8;--wr-item:#cdd7e4;--wr-line:rgba(255,255,255,.09);
+  background:var(--wr-bg);color:var(--wr-text);font-family:'Montserrat',system-ui,sans-serif}
+.rs-wr-wrap{width:100%;max-width:80rem;margin:0 auto;padding-inline:1.5rem}
+
+/* ---------- 1. hero: 320px, plain black (no red glow), thin red line along the bottom edge ---------- */
+.rs-wr-hero{position:relative;display:flex;align-items:center;justify-content:center;min-height:320px;padding:3rem 1.5rem;text-align:center;overflow:hidden;isolation:isolate;
+  background:#000;
+  border-bottom:1px solid rgba(232,41,53,.5)}
+/* rs-motion.js drops a drifting red/orange <rs-aura> into the first hero of each page; this hero must stay plain black */
+.rs-wr-hero rs-aura{display:none}
+.rs-wr-hero-inner{max-width:60rem}
+.rs-wr-hero h1{margin:0;font-size:clamp(1.65rem,4.6vw,3.25rem);line-height:1.15;letter-spacing:.04em;color:#fff}
+/* a class, not "h1 span": rs-motion.js wraps every headline word in its own <span> */
+.rs-wr-hero h1 .rs-wr-red{color:var(--wr-red)}
+.rs-wr-hero p{margin:1.5rem auto 0;max-width:38rem;font-size:clamp(1rem,1.5vw,1.125rem);font-weight:300;line-height:1.8;color:var(--wr-text)}
+
+/* ---------- sections ---------- */
+.rs-wr-sec{padding:5rem 0}
+.rs-wr-sec--alt{background:var(--wr-bg2);border-top:1px solid var(--wr-line);border-bottom:1px solid var(--wr-line)}
+.rs-wr-h2{margin:0;font-size:clamp(1.1rem,2.2vw,1.55rem);line-height:1.3;letter-spacing:.06em;color:#fff}
+.rs-wr-h2::after{content:"";display:block;width:3rem;height:3px;margin-top:1rem;border-radius:2px;background:var(--wr-red)}
+.rs-wr-lead{margin:2rem 0 0;max-width:54rem;font-size:1.0625rem;font-weight:300;line-height:1.95;color:var(--wr-text)}
+
+/* ---------- 3 + 4. covered / not covered picture cards ---------- */
+/* the section heading (.rs-wr-h2) sits above the cards */
+.rs-wr-h2+.rs-wr-cards{margin-top:2.5rem}
+.rs-wr-cards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:1.25rem}
+.rs-wr-card picture{display:block}
+.rs-wr-card img{display:block;width:100%;height:auto;border-radius:1.1rem;box-shadow:0 30px 60px -30px rgba(0,0,0,.9)}
+
+/* ---------- warranty duration + terms ---------- */
+.rs-wr-terms{list-style:none;margin:2.5rem 0 0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:1rem}
+.rs-wr-term{padding:1.6rem 1.5rem;border:1px solid var(--wr-line);border-radius:.85rem;background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.01))}
+.rs-wr-term h3{margin:0;font-size:.82rem;line-height:1.5;letter-spacing:.08em;color:#fff}
+.rs-wr-term p{margin:.75rem 0 0;font-size:.98rem;font-weight:300;line-height:1.7;color:var(--wr-text)}
+.rs-wr-note{margin-top:1.5rem;padding:1.6rem 1.75rem;border:1px solid var(--wr-line);border-left:3px solid var(--wr-red);border-radius:.85rem;background:rgba(255,255,255,.02)}
+.rs-wr-note h3{margin:0;font-size:.82rem;letter-spacing:.08em;color:#fff}
+.rs-wr-note p{margin:.75rem 0 0;font-size:1rem;font-weight:300;line-height:1.85;color:var(--wr-text)}
+
+/* ---------- 5. claim process: three icon cards, red chevrons between them ---------- */
+.rs-wr-flow{background:radial-gradient(ellipse 45% 40% at 100% 100%,rgba(232,41,53,.22),transparent 70%),var(--wr-bg)}
+.rs-wr-steps{list-style:none;margin:2.5rem 0 0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:1rem}
+.rs-wr-step{position:relative;display:flex;align-items:center;gap:1.25rem;padding:1.4rem 1.4rem;border:1px solid var(--wr-line);border-radius:1rem;
+  background:linear-gradient(165deg,rgba(255,255,255,.05),rgba(255,255,255,.012) 55%,rgba(232,41,53,.04));
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05);transition:border-color .3s,box-shadow .3s}
+.rs-wr-step:hover{border-color:rgba(232,41,53,.6);box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 0 36px -12px rgba(232,41,53,.6)}
+.rs-wr-badge{flex:none;display:flex;align-items:center;justify-content:center;width:4.25rem;height:4.25rem;border-radius:50%;border:1px solid rgba(255,255,255,.08);
+  background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.07),rgba(255,255,255,.015) 70%),#0b0b0d;box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 0 24px -8px rgba(232,41,53,.55)}
+.rs-wr-badge svg,.rs-wr-panel-ico svg{display:block;fill:none;stroke:var(--wr-red);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.rs-wr-badge svg{width:1.9rem;height:1.9rem}
+.rs-wr-step-body{align-self:stretch;min-width:0;padding-left:1.25rem;border-left:1px solid rgba(255,255,255,.09)}
+.rs-wr-step-no{display:block;font-family:var(--rs-display);font-size:1.6rem;font-weight:700;line-height:1;letter-spacing:.04em;color:var(--wr-red)}
+.rs-wr-step h3{margin:.7rem 0 0;font-size:.95rem;letter-spacing:.1em;color:#fff}
+.rs-wr-step p{margin:.5rem 0 0;font-size:.95rem;font-weight:300;line-height:1.7;color:var(--wr-text)}
+/* chevron in the gap between two cards (3-across layout only) */
+.rs-wr-step:not(:last-child)::after{content:"";display:none;position:absolute;top:50%;right:-1.15rem;width:.7rem;height:.7rem;border-top:3px solid var(--wr-red);border-right:3px solid var(--wr-red);transform:translateY(-50%) rotate(45deg)}
+
+/* ---------- 6. verify + support panels ---------- */
+.rs-wr-panels{display:grid;gap:1.5rem;margin-top:1.5rem}
+.rs-wr-panel{position:relative;display:flex;flex-direction:column;align-items:flex-start;gap:1.5rem;padding:1.75rem 1.5rem;border:1px solid var(--wr-line);border-radius:1rem;overflow:hidden;isolation:isolate;
+  background:linear-gradient(120deg,rgba(255,255,255,.045),rgba(255,255,255,.012) 45%,rgba(255,255,255,.03));box-shadow:inset 0 1px 0 rgba(255,255,255,.05)}
+.rs-wr-panel--hot{border-color:rgba(232,41,53,.7);background:linear-gradient(120deg,#0e0e10 0%,#0b0b0d 45%,#17090c 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 0 0 1px rgba(232,41,53,.12),0 0 56px -16px rgba(232,41,53,.55)}
+/* brushed-metal sheen toward the right of the verify panel */
+.rs-wr-panel--hot::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background:repeating-linear-gradient(115deg,rgba(255,255,255,.045) 0 1px,transparent 1px 12px),linear-gradient(105deg,transparent 40%,rgba(255,255,255,.06) 62%,transparent 80%);
+  -webkit-mask-image:linear-gradient(90deg,transparent 30%,#000 80%);mask-image:linear-gradient(90deg,transparent 30%,#000 80%)}
+.rs-wr-panel-ico{flex:none;display:flex;align-items:center;justify-content:center;width:4.5rem;height:4.5rem;border:1px solid rgba(255,255,255,.1);border-radius:1rem;
+  background:linear-gradient(150deg,rgba(255,255,255,.08),rgba(255,255,255,.015)),#0b0b0d;box-shadow:inset 0 1px 0 rgba(255,255,255,.06)}
+.rs-wr-panel-ico--round{border-radius:50%}
+.rs-wr-panel-ico svg{width:2.1rem;height:2.1rem}
+.rs-wr-panel-text{flex:1 1 auto;min-width:0}
+.rs-wr-panel h2{margin:0;font-size:clamp(1.1rem,2.2vw,1.6rem);line-height:1.25;letter-spacing:.06em;color:#fff}
+.rs-wr-panel--help h2{font-size:.9rem;letter-spacing:.2em}
+.rs-wr-panel p{margin:.75rem 0 0;max-width:36rem;font-size:1rem;font-weight:300;line-height:1.7;color:var(--wr-text)}
+
+.rs-wr-btn{display:inline-flex;align-items:center;justify-content:center;gap:.8rem;min-height:3.4rem;padding:.9rem 2.4rem;border:1px solid rgba(255,255,255,.14);border-radius:.6rem;
+  background:linear-gradient(180deg,#e02a37 0%,var(--wr-btn) 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.25),0 12px 28px -12px rgba(232,41,53,.75);
+  font-size:.8rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;line-height:1.2;text-align:center;text-decoration:none;white-space:nowrap;color:#fff;transition:background .25s,box-shadow .25s}
+.rs-wr-btn:hover{background:linear-gradient(180deg,var(--wr-btn) 0%,var(--wr-btn-hi) 100%);box-shadow:inset 0 1px 0 rgba(255,255,255,.2),0 14px 32px -10px rgba(232,41,53,.9)}
+.rs-wr-btn:focus-visible{outline:2px solid #fff;outline-offset:3px}
+
+/* ---------- tablet ---------- */
+@media(min-width:700px){
+  .rs-wr-wrap{padding-inline:2.5rem}
+  .rs-wr-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.75rem}
+  .rs-wr-terms{grid-template-columns:repeat(2,minmax(0,1fr));gap:1.25rem 1.5rem}
+}
+/* panels: icon, text, then the button on the right */
+@media(min-width:800px){
+  .rs-wr-panel{flex-direction:row;align-items:center;gap:2rem;padding:2rem 2.5rem}
+  .rs-wr-panel .rs-wr-btn{flex:none;margin-left:auto}
+}
+@media(min-width:900px){.rs-wr-sec{padding:6rem 0}}
+/* desktop: claim steps sit side by side */
+@media(min-width:1100px){
+  .rs-wr-terms{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .rs-wr-cards{grid-template-columns:repeat(4,minmax(0,1fr));gap:1.25rem}
+  .rs-wr-card img{border-radius:.9rem}
+  .rs-wr-steps{grid-template-columns:repeat(3,minmax(0,1fr));gap:1.5rem}
+  .rs-wr-step:not(:last-child)::after{display:block}
+}
+/* ---------- mobile ---------- */
+@media(max-width:699px){
+  .rs-wr-sec{padding:3.5rem 0}
+  .rs-wr-hero{padding:2.5rem 1.5rem}
+  .rs-wr-terms,.rs-wr-steps{margin-top:2rem}
+  .rs-wr-step{gap:1rem;padding:1.25rem 1.1rem}
+  .rs-wr-badge{width:3.5rem;height:3.5rem}
+  .rs-wr-badge svg{width:1.55rem;height:1.55rem}
+  .rs-wr-step-body{padding-left:1rem}
+  .rs-wr-panel .rs-wr-btn{width:100%}
+}
+@media(prefers-reduced-motion:reduce){.rs-wr-step,.rs-wr-btn{transition:none}}

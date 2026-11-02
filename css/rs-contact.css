@@ -1,0 +1,100 @@
+/* Contact page: premium "Get in Touch" hero.
+   Everything is scoped to .rs-ct (plus the contact-page nav tweaks at the top), so nothing here leaks to other pages.
+   Headings pick up Syncopate from rs-font.css; body copy is Montserrat (300 / 600 / 800 are the weights loaded). */
+
+/* ---------- nav: glossy black, hairline divider, subtle active state ---------- */
+#navbar{background:linear-gradient(180deg,#111113 0%,#060607 55%,#000 100%)!important;border-bottom:0!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.07)!important}
+#navbar::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(255,255,255,.14) 18%,rgba(228,52,60,.5) 50%,rgba(255,255,255,.14) 82%,transparent)}
+.rs-nav a[aria-current="page"]{position:relative;color:#ff5a5f}
+.rs-nav a[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:-.45rem;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,#e4343c,transparent);box-shadow:0 0 10px rgba(228,52,60,.7)}
+
+/* ---------- section ---------- */
+.rs-ct{--ct-red:#e4343c;--ct-red-hi:#ff5a5f;--ct-mute:#97a3b8;--ct-line:rgba(255,255,255,.1);
+  position:relative;overflow:hidden;isolation:isolate;font-family:'Montserrat',system-ui,sans-serif;text-align:center;
+  padding:5.5rem 1.5rem 5.5rem;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% -8%,rgba(228,52,60,.26),transparent 68%),
+    radial-gradient(ellipse 55% 45% at 50% 108%,rgba(150,12,24,.34),transparent 70%),
+    radial-gradient(ellipse 30% 40% at 0% 55%,rgba(228,52,60,.08),transparent 70%),
+    radial-gradient(ellipse 30% 40% at 100% 55%,rgba(228,52,60,.08),transparent 70%),
+    linear-gradient(180deg,#050506 0%,#09070a 52%,#000 100%)}
+/* fine diagonal lines, masked to fade out toward the edges: a quiet nod to film / carbon weave */
+.rs-ct::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background:repeating-linear-gradient(115deg,rgba(255,255,255,.035) 0 1px,transparent 1px 11px);
+  -webkit-mask-image:radial-gradient(ellipse 60% 70% at 50% 40%,#000,transparent 75%);mask-image:radial-gradient(ellipse 60% 70% at 50% 40%,#000,transparent 75%)}
+/* hairline where the section meets the next one */
+.rs-ct::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;z-index:-1;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(228,52,60,.45) 50%,transparent)}
+.rs-ct-inner{position:relative;z-index:2;max-width:74rem;margin:0 auto}
+
+/* ---------- heading block ---------- */
+.rs-ct h1{margin:0;font-size:clamp(1.9rem,5vw,4.5rem);line-height:1.05;letter-spacing:.015em;color:#fff}
+.rs-ct h1 .rs-ct-red{color:var(--ct-red)}
+.rs-ct-sub{margin:1.75rem auto 0;max-width:40rem;font-size:clamp(1.05rem,1.7vw,1.45rem);font-weight:600;line-height:1.4;letter-spacing:.01em;color:#fff}
+.rs-ct-sub::after{content:"";display:block;width:3rem;height:2px;margin:1.35rem auto 0;border-radius:2px;background:linear-gradient(90deg,transparent,var(--ct-red),transparent);box-shadow:0 0 12px rgba(228,52,60,.7)}
+.rs-ct-lead{margin:1.25rem auto 0;max-width:41rem;font-size:1.05rem;font-weight:300;line-height:1.8;color:var(--ct-mute)}
+
+/* ---------- contact cards ---------- */
+.rs-ct-cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.75rem;max-width:52rem;margin:3.25rem auto 0}
+.rs-ct-card{position:relative;display:flex;flex-direction:column;align-items:center;padding:2.4rem 1.75rem 2.2rem;border-radius:1.15rem;text-decoration:none;color:inherit;overflow:hidden;
+  background:linear-gradient(165deg,rgba(255,255,255,.065) 0%,rgba(255,255,255,.015) 38%,rgba(228,52,60,.05) 100%),#0a0a0c;
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);
+  box-shadow:0 34px 60px -28px rgba(0,0,0,.95),0 0 70px -34px rgba(228,52,60,.55),inset 0 1px 0 rgba(255,255,255,.07);
+  transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s}
+/* thin metallic border: bright top-left edge falling off to a red lower-right */
+.rs-ct-card>.rs-ct-edge{position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;
+  background:linear-gradient(145deg,rgba(255,255,255,.38),rgba(255,255,255,.07) 34%,rgba(255,255,255,.05) 62%,rgba(228,52,60,.6));
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0);
+  transition:opacity .45s}
+/* cursor spotlight (position set by js/rs-contact.js) and a red light bar along the lower edge */
+.rs-ct-card::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .45s;
+  background:radial-gradient(360px circle at var(--mx,50%) var(--my,0%),rgba(255,90,95,.15),transparent 65%)}
+.rs-ct-card::after{content:"";position:absolute;left:14%;right:14%;bottom:0;height:2px;pointer-events:none;opacity:.55;transition:opacity .45s,left .45s,right .45s;
+  background:linear-gradient(90deg,transparent,var(--ct-red),transparent);box-shadow:0 0 22px 2px rgba(228,52,60,.55)}
+.rs-ct-card:hover,.rs-ct-card:focus-visible{transform:translateY(-6px);
+  box-shadow:0 44px 70px -28px rgba(0,0,0,.95),0 0 90px -28px rgba(228,52,60,.75),inset 0 1px 0 rgba(255,255,255,.1)}
+.rs-ct-card:hover::before,.rs-ct-card:focus-visible::before{opacity:1}
+.rs-ct-card:hover::after,.rs-ct-card:focus-visible::after{opacity:1;left:6%;right:6%}
+.rs-ct-card:focus-visible{outline:2px solid var(--ct-red-hi);outline-offset:4px}
+
+.rs-ct-arrow{position:absolute;top:1.15rem;right:1.2rem;width:1.05rem;height:1.05rem;fill:none;stroke:#fff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;opacity:.35;transition:opacity .35s,transform .35s,stroke .35s}
+.rs-ct-card:hover .rs-ct-arrow,.rs-ct-card:focus-visible .rs-ct-arrow{opacity:1;stroke:var(--ct-red-hi);transform:translate(2px,-2px)}
+
+.rs-ct-icon{position:relative;display:flex;align-items:center;justify-content:center;width:3.4rem;height:3.4rem;margin-bottom:1.35rem;border-radius:.95rem;
+  background:linear-gradient(150deg,rgba(255,255,255,.1),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.13);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 10px 24px -10px rgba(0,0,0,.9),0 0 26px -8px rgba(228,52,60,.5)}
+.rs-ct-icon svg{width:1.45rem;height:1.45rem}
+.rs-ct-wa .rs-ct-icon{box-shadow:inset 0 1px 0 rgba(255,255,255,.12),0 10px 24px -10px rgba(0,0,0,.9),0 0 26px -8px rgba(37,211,102,.4)}
+
+.rs-ct-card h3{margin:0;font-size:.78rem;letter-spacing:.24em;color:#c3cad8}
+.rs-ct-main{display:flex;align-items:center;justify-content:center;min-height:2.6rem;margin-top:1rem;color:#fff}
+.rs-ct-num{font-size:clamp(1.35rem,2.2vw,1.8rem);font-weight:800;letter-spacing:.03em;font-variant-numeric:tabular-nums}
+.rs-ct-line{font-size:1.2rem;font-weight:600;letter-spacing:.01em}
+.rs-ct-foot{display:flex;align-items:center;justify-content:center;min-height:2rem;margin-top:.55rem;font-size:.92rem;font-weight:300;color:var(--ct-mute)}
+.rs-ct-pill{padding:.38rem 1rem;border:1px solid rgba(228,52,60,.4);border-radius:999px;background:rgba(228,52,60,.09);font-size:.7rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--ct-red-hi)}
+
+/* ---------- divider + benefits ---------- */
+.rs-ct-rule{position:relative;height:1px;max-width:64rem;margin:4.5rem auto 3.5rem;background:linear-gradient(90deg,transparent,rgba(255,255,255,.2) 20%,rgba(255,255,255,.2) 80%,transparent)}
+.rs-ct-rule::after{content:"";position:absolute;left:50%;top:50%;width:3.5rem;height:3px;margin:-1.5px 0 0 -1.75rem;border-radius:3px;background:var(--ct-red);box-shadow:0 0 16px rgba(228,52,60,.8)}
+.rs-ct-feats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:2.5rem;max-width:72rem;margin:0 auto;padding:0;list-style:none;text-align:left}
+.rs-ct-feats li{position:relative;padding:.2rem 0 .2rem 1.35rem}
+.rs-ct-feats li::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;border-radius:2px;background:linear-gradient(180deg,var(--ct-red),rgba(228,52,60,.12));box-shadow:0 0 12px rgba(228,52,60,.35)}
+.rs-ct-feats h3{margin:0 0 .8rem;min-height:3em;font-size:.72rem;line-height:1.5;letter-spacing:.07em;color:#fff}
+.rs-ct-feats p{margin:0;font-size:.92rem;font-weight:300;line-height:1.75;color:var(--ct-mute)}
+
+/* ---------- entrance (cooperates with rs-motion.js: starts once it flags the page ready) ---------- */
+@keyframes rsCtUp{from{opacity:0;transform:translate3d(0,22px,0)}to{opacity:1;transform:none}}
+html.rs-mo-ready .rs-ct [data-ct]{animation:rsCtUp .9s cubic-bezier(.16,1,.3,1) var(--d,0ms) both}
+
+/* ---------- responsive ---------- */
+@media(max-width:1023px){.rs-ct-feats{grid-template-columns:repeat(2,minmax(0,1fr));gap:2.25rem 2rem}.rs-ct-feats h3{min-height:0}}
+@media(max-width:720px){
+  .rs-ct{padding:3.5rem 1.25rem 3.5rem}
+  .rs-ct-cards{grid-template-columns:1fr;gap:1.25rem;margin-top:2.5rem}
+  .rs-ct-rule{margin:3rem auto 2.5rem}
+  .rs-ct-feats{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){
+  html.rs-mo-ready .rs-ct [data-ct]{animation:none}
+  .rs-ct-card,.rs-ct-card::before,.rs-ct-card::after,.rs-ct-arrow{transition:none}
+  .rs-ct-card:hover,.rs-ct-card:focus-visible{transform:none}
+}

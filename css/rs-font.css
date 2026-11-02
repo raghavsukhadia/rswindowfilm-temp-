@@ -1,0 +1,47 @@
+/* Site-wide display font. Change --rs-display (and the Google Fonts link in each page) to swap it. */
+:root{--rs-display:'Syncopate','Montserrat',system-ui,sans-serif}
+h1,h2,h3,h4,.rs-nav,.rs-nav-cta,.rs-eyebrow,.rs-wf-eyebrow,.rs-wf-stats span{font-family:var(--rs-display)!important}
+h1,h2,h3,h4{font-weight:700;letter-spacing:0;overflow-wrap:break-word}
+.rs-nav{font-size:.8rem;font-weight:700;letter-spacing:.02em}
+.rs-nav-cta{font-size:.8rem}
+
+/* Display font + uppercase on every heading and display label, site-wide */
+.rs-sub,.rs-feature span,.rs-cta,.rs-legend div,.rs-row span,.rs-explore,.rs-note strong,.rs-drive-lead{font-family:var(--rs-display)!important}
+h1,h2,h3,h4{text-transform:uppercase;line-height:1.15}
+/* Syncopate is very wide, so size the large homepage headings down to fit */
+.rs-hero h1{font-size:clamp(1.5rem,3.2vw,3rem);letter-spacing:0}
+.rs-drive h2{font-size:clamp(1.4rem,2.8vw,2.6rem);letter-spacing:0}
+.rs-sub,.rs-drive-lead{font-size:clamp(1rem,1.5vw,1.3rem);font-weight:400}
+.rs-cta{font-size:1rem;font-weight:700}
+.rs-explore{font-size:1rem}
+.rs-row h3{font-size:1.1rem}
+.rs-feature span{font-size:.7rem;letter-spacing:.04em;text-transform:uppercase}
+.rs-legend div{font-size:.8rem}
+
+/* Lead lines use the same bold uppercase style as the headings (Syncopate's lowercase glyphs are too quirky to read) */
+.rs-sub,.rs-drive-lead{text-transform:uppercase;font-weight:700;letter-spacing:.01em;line-height:1.5;font-size:clamp(.95rem,1.5vw,1.35rem)}
+
+/* Navbar: same bold uppercase style as the headings */
+.rs-nav,.rs-nav a,.rs-nav-cta{text-transform:uppercase;font-weight:700;letter-spacing:.04em}
+
+/* Bold terms in the footnote: same uppercase style, sized to sit with the body text */
+.rs-note strong{text-transform:uppercase;font-weight:700;font-size:.85em;letter-spacing:.03em}
+
+/* Hero feature labels: bold */
+.rs-feature span{font-weight:700;color:#fff}
+
+/* Hero feature icons: gentle looping animations (disabled for reduced-motion users) */
+@keyframes rsRing{0%{box-shadow:0 0 0 0 rgba(77,163,255,.45)}70%,100%{box-shadow:0 0 0 14px rgba(77,163,255,0)}}
+@keyframes rsSpin{to{transform:rotate(360deg)}}
+@keyframes rsPulse{0%,100%{transform:scale(1);filter:drop-shadow(0 0 0 rgba(77,163,255,0))}50%{transform:scale(1.18);filter:drop-shadow(0 0 6px rgba(77,163,255,.9))}}
+@keyframes rsTemp{0%,100%{transform:translateY(0);filter:drop-shadow(0 0 0 rgba(77,163,255,0))}50%{transform:translateY(-3px);filter:drop-shadow(0 0 6px rgba(77,163,255,.9))}}
+@keyframes rsBlink{0%,42%,50%,100%{transform:scaleY(1)}46%{transform:scaleY(.1)}}
+.rs-feature i{animation:rsRing 2.4s ease-out infinite;transition:background .3s,border-color .3s}
+.rs-feature:nth-child(2) i{animation-delay:.6s}.rs-feature:nth-child(3) i{animation-delay:1.2s}.rs-feature:nth-child(4) i{animation-delay:1.8s}
+.rs-feature:hover i{background:rgba(59,130,246,.15);border-color:#4da3ff}
+.rs-feature svg{transform-origin:center}
+.rs-feature:nth-child(1) svg{animation:rsSpin 10s linear infinite}
+.rs-feature:nth-child(2) svg{animation:rsTemp 2.2s ease-in-out infinite}
+.rs-feature:nth-child(3) svg{animation:rsPulse 2.4s ease-in-out infinite}
+.rs-feature:nth-child(4) svg{animation:rsBlink 4s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){.rs-feature i,.rs-feature svg{animation:none!important}}

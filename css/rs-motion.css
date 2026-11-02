@@ -1,0 +1,70 @@
+/* RS Motion layer - shared premium animation system (all pages).
+   Progressive: nothing is hidden unless rs-motion.js has tagged it, and every
+   animation class is removed again once it finishes so page styles stay in charge. */
+
+/* ---------- page transitions (cross-document, Chromium; ignored elsewhere) ---------- */
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:rsVtOut .22s ease both}
+::view-transition-new(root){animation:rsVtIn .55s cubic-bezier(.16,1,.3,1) both}
+@keyframes rsVtOut{to{opacity:0}}
+@keyframes rsVtIn{from{opacity:0}}
+
+/* ---------- first paint: hold <main> until the script has tagged it (fail-safe after 1.5s) ---------- */
+html:not(.rs-mo-ready) main{opacity:0;animation:rsFailsafe .01s 1.5s forwards}
+@keyframes rsFailsafe{to{opacity:1}}
+
+::selection{background:rgba(220,38,38,.55);color:#fff}
+
+/* ---------- scroll progress ---------- */
+.rs-mo-progress{position:fixed;top:0;left:0;width:100%;height:2px;z-index:9999;pointer-events:none;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,#7f1414,#dc2626 60%,#ff6b5a);box-shadow:0 0 12px rgba(220,38,38,.75)}
+
+/* ---------- reveal ---------- */
+.rs-mo .rs-pre{opacity:0}
+.rs-in{animation:rsUp 1s cubic-bezier(.16,1,.3,1) var(--rs-d,0ms) both}
+.rs-in.rs-img{animation-name:rsImg;animation-duration:1.25s}
+@keyframes rsUp{
+  from{opacity:0;transform:translate3d(0,var(--rs-y,30px),0);filter:blur(6px)}
+  to{opacity:1;transform:none;filter:blur(0)}
+}
+@keyframes rsImg{
+  from{opacity:0;transform:scale(1.07);clip-path:inset(7% 5% 7% 5% round 14px);filter:blur(5px)}
+  to{opacity:1;transform:none;clip-path:inset(0 0 0 0 round 0);filter:blur(0)}
+}
+
+/* ---------- headline: masked word reveal ---------- */
+.rs-w{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.14em;margin-bottom:-.14em}
+.rs-wi{display:inline-block}
+.rs-mo .rs-split:not(.rs-hin) .rs-wi{transform:translate3d(0,115%,0)}
+.rs-split.rs-hin .rs-wi{animation:rsWord 1.05s cubic-bezier(.16,1,.3,1) calc(var(--i,0) * 75ms + 120ms) both}
+@keyframes rsWord{from{transform:translate3d(0,115%,0)}to{transform:none}}
+
+/* ---------- parallax targets ---------- */
+[data-rs-par]{will-change:transform;transform:translate3d(0,var(--rs-py,0px),0) scale(var(--rs-ps,1.1))}
+
+/* ---------- cursor glow on cards ---------- */
+rs-glow{position:absolute;inset:0;display:block;border-radius:inherit;pointer-events:none;opacity:0;transition:opacity .45s ease;background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),rgba(255,70,60,.16),rgba(220,38,38,.05) 45%,transparent 70%)}
+[data-rs-glow]:hover>rs-glow{opacity:1}
+
+/* ---------- button shine ---------- */
+rs-sh{position:absolute;top:0;bottom:0;left:-70%;width:45%;display:block;pointer-events:none;background:linear-gradient(100deg,transparent,rgba(255,255,255,.38),transparent);transform:skewX(-22deg);transition:left 0s}
+[data-rs-shine]:hover>rs-sh{left:130%;transition:left .85s cubic-bezier(.2,.7,.2,1)}
+
+/* ---------- ambient hero aura ---------- */
+rs-aura{position:absolute;inset:0;display:block;overflow:hidden;pointer-events:none;mix-blend-mode:screen;opacity:.6}
+rs-aura::before,rs-aura::after{content:"";position:absolute;width:62vmax;height:62vmax;border-radius:50%;will-change:transform}
+rs-aura::before{left:-22vmax;top:-26vmax;background:radial-gradient(circle,rgba(220,38,38,.3),transparent 62%);animation:rsDriftA 19s ease-in-out infinite alternate}
+rs-aura::after{right:-26vmax;bottom:-32vmax;background:radial-gradient(circle,rgba(255,150,70,.17),transparent 62%);animation:rsDriftB 24s ease-in-out infinite alternate}
+@keyframes rsDriftA{to{transform:translate3d(16vmax,10vmax,0) scale(1.15)}}
+@keyframes rsDriftB{to{transform:translate3d(-14vmax,-9vmax,0) scale(1.2)}}
+
+@media(max-width:700px){rs-aura{opacity:.45}}
+
+@media(prefers-reduced-motion:reduce){
+  html:not(.rs-mo-ready) main{opacity:1;animation:none}
+  .rs-mo .rs-pre{opacity:1}
+  .rs-in,.rs-split.rs-hin .rs-wi,rs-aura::before,rs-aura::after{animation:none!important}
+  .rs-mo .rs-split:not(.rs-hin) .rs-wi{transform:none}
+  [data-rs-par]{transform:none;will-change:auto}
+  rs-sh,rs-glow,.rs-mo-progress{display:none}
+  ::view-transition-old(root),::view-transition-new(root){animation:none}
+}
